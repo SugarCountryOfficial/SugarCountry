@@ -1,0 +1,38 @@
+#gameBoard {
+  background-color: black;
+}
+
+#title {
+}
+
+#hud {
+  background-color: #CCCCCC;
+  width: 1600px;
+  height: 200px;
+}
+
+.playersHuds {
+  text-align: center;
+  float: left;
+  background-color: #ff66ff;
+  height: 100%;
+  width: 15%;
+}
+
+#mainHud {
+  text-align: center;
+  float: left;
+  background-color: #66ff66;
+  height: 100%;
+  width: 40%;
+}
+
+#status {
+  margin: auto;
+  margin-top: 10%;
+
+  border: 1px solid black;
+  background: white;
+  width: 75%;
+  height: 25%;
+}
