@@ -1,0 +1,10 @@
+Leaderboard added:
+	* Needs to be centered in CSS. Too tired to figure out how to do it.
+
+v2 additions:
+	-leaderboard CSS fixed so status bar no longer goes off screen
+	-html divs to add in characters' chosen icons within their HUD
+	-Coloring for the Special and 'SUPER' Special tiles (still needs functionality)
+	-added a CSS class that can be assigned to whichever player's turn it is
+	-Player numbers represented on the board (I figured it'd be way too small to draw
+	the players icons onto the game board)
