@@ -1,5 +1,6 @@
 #gameBoard {
   background-color: black;
+  margin: auto;
 }
 
 #title {
@@ -35,4 +36,21 @@
   background: white;
   width: 75%;
   height: 25%;
+}
+
+#HorizontalLine {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
+}
+
+#Leaderboard {
+
+}
+
+#Score {
+  
 }

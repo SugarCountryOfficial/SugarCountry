@@ -1,0 +1,2 @@
+Leaderboard added:
+	* Needs to be centered in CSS. Too tired to figure out how to do it.

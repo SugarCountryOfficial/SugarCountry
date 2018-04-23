@@ -61,6 +61,8 @@ function setupLocal() {
   })
   ;
   console.log("Finished Setup");
+
+
 } // setupLocal
 
 function saveItems() {
@@ -148,50 +150,67 @@ function drawGameBoard() {
 }
 
 function rollPlayer1() {
+  $("ol").empty();
   let rollNum = Math.floor(Math.random() * 6) + 1;
   Play1Position += rollNum;
   if (Play1Position >= 72) {
     Play1Position = 72;
   }
+  PlayerLeaderboard();
   drawGameBoard();
 
-  console.log("Player 1 rolled a " + rollNum)
+  console.log("Player 1 rolled a " + rollNum);
+  $('#status').text("Player 1 rolled a " + rollNum + "!");
+
 
 }
 
 function rollPlayer2() {
+  $("ol").empty();
   let rollNum = Math.floor(Math.random() * 6) + 1;
   Play2Position += rollNum;
   if (Play2Position >= 72) {
     Play2Position = 72;
   }
+  PlayerLeaderboard();
   drawGameBoard();
 
-  console.log("Player 2 rolled a " + rollNum)
+  console.log("Player 2 rolled a " + rollNum);
+    $('#status').text("Player 2 rolled a " + rollNum + "!");
+
 
 }
 
 function rollPlayer3() {
+  $("ol").empty();
   let rollNum = Math.floor(Math.random() * 6) + 1;
   Play3Position += rollNum;
   if (Play3Position >= 72) {
     Play3Position = 72;
   }
+  PlayerLeaderboard();
   drawGameBoard();
 
-  console.log("Player 3 rolled a " + rollNum)
+  console.log("Player 3 rolled a " + rollNum);
+    $('#status').text("Player 3 rolled a " + rollNum + "!");
+
+
 
 }
 
 function rollPlayer4() {
+  $("ol").empty();
   let rollNum = Math.floor(Math.random() * 6) + 1;
   Play4Position += rollNum;
   if (Play4Position >= 72) {
     Play4Position = 72;
   }
+  PlayerLeaderboard();
   drawGameBoard();
 
-  console.log("Player 4 rolled a " + rollNum)
+  console.log("Player 4 rolled a " + rollNum);
+    $('#status').text("Player 4 rolled a " + rollNum + "!");
+
 
 }
 
@@ -201,7 +220,209 @@ function Nuke() {
    Play3Position = 1;
    Play4Position = 1;
    drawGameBoard();
+   $('#status').text("");
+   $("ol").empty();
 }
+
+
+//*****************THICCBOI*****************//
+function PlayerLeaderboard() {
+  if (Play1Position > Play2Position && Play1Position > Play3Position && Play1Position > Play4Position) {
+     $("#Leaderboard").append($("<li> id='Score'").text("Player 1 at: " + Play1Position));
+
+     if (Play2Position > Play3Position && Play2Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+
+        if (Play3Position > Play4Position) {
+            $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+            $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        } //End 3 > 4
+        if (Play4Position > Play3Position) {
+            $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+            $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        } //End 4 > 3
+
+    } // End 2 > 3 + 4
+
+    if (Play3Position > Play2Position && Play2Position > Play4Position) {
+       $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+
+       if (Play2Position > Play4Position) {
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+           $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+       } //End 2 > 4
+       if (Play4Position > Play2Position) {
+           $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+      } //End 4 > 2
+
+    } // End 3 > 2 + 4
+
+    if (Play4Position > Play2Position && Play2Position > Play3Position) {
+       $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+
+       if (Play2Position > Play3Position) {
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+           $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+       } //End 2 > 3
+       if (Play3Position > Play2Position) {
+           $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+      } //End 3 > 2
+
+    } // End 3 > 2 + 4
+
+  } // End 1 > 2 + 3 + 4
+
+//*********************************THICCBOIv2****************************//
+//Begin 2 > 3 + 4 + 1
+  if (Play2Position > Play1Position && Play2Position > Play3Position && Play2Position > Play4Position) {
+     $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+
+     if (Play1Position > Play3Position && Play1Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+
+        if (Play3Position > Play4Position) {
+            $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+            $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        } //End 3 > 4
+        if (Play4Position > Play3Position) {
+            $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+            $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        } //End 4 > 3
+
+    } // End 1 > 3 + 4
+
+    if (Play3Position > Play1Position && Play3Position > Play4Position) {
+       $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+
+       if (Play1Position > Play4Position) {
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+           $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+       } //End 1 > 4
+       if (Play4Position > Play1Position) {
+           $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+      } //End 4 > 1
+
+    } // End 3 > 1 + 4
+
+    if (Play4Position > Play1Position && Play4Position > Play3Position) {
+       $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+
+       if (Play1Position > Play3Position) {
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+           $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+       } //End 1 > 3
+       if (Play3Position > Play1Position) {
+           $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+      } //End 3 > 1
+
+    } // End 4 > 1 + 3
+
+  } // End 2 > 1 + 3 + 4
+
+//*********************************THICCBOIv3****************************//
+//Begin 3 > 1 + 2 + 4
+  if (Play3Position > Play1Position && Play3Position > Play2Position && Play3Position > Play4Position) {
+     $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+
+     if (Play1Position > Play2Position && Play1Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+
+        if (Play4Position > Play2Position) {
+            $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+            $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+        } //End 4 > 2
+        if (Play2Position > Play4Position) {
+            $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+            $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        } //End 2 > 4
+
+    } // End 1 > 2 + 4
+
+    if (Play2Position > Play1Position && Play2Position > Play4Position) {
+       $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+
+       if (Play1Position > Play4Position) {
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+           $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+       } //End 1 > 4
+       if (Play4Position > Play1Position) {
+           $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+      } //End 4 > 1
+
+    } // End 2 > 1 + 4
+
+    if (Play4Position > Play1Position && Play4Position > Play2Position) {
+       $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+
+       if (Play1Position > Play2Position) {
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+       } //End 1 > 2
+       if (Play2Position > Play1Position) {
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+      } //End 3 > 1
+
+    } // End 4 > 1 + 2
+
+  } // End 3 > 1 + 2 + 4
+
+//*********************************THICCBOIv4****************************//
+//Begin 4 > 1 + 2 + 3
+  if (Play4Position > Play1Position && Play4Position > Play2Position && Play4Position > Play3Position) {
+     $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+
+     if (Play1Position > Play2Position && Play1Position > Play3Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+
+        if (Play3Position > Play2Position) {
+            $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+            $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+        } //End 3 > 2
+        if (Play2Position > Play2Position) {
+            $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+            $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        } //End 2 > 3
+
+    } // End 1 > 2 + 3
+
+    if (Play2Position > Play1Position && Play2Position > Play3Position) {
+       $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+
+       if (Play1Position > Play3Position) {
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+           $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+       } //End 1 > 3
+       if (Play3Position > Play1Position) {
+           $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+      } //End 3 > 1
+
+    } // End 2 > 1 + 3
+
+    if (Play3Position > Play1Position && Play3Position > Play2Position) {
+       $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+
+       if (Play1Position > Play2Position) {
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+       } //End 1 > 2
+       if (Play2Position > Play1Position) {
+           $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+           $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+      } //End 3 > 1
+
+    } // End 3 > 1 + 2
+
+  } // End 4 > 1 + 2 + 3
+
+} //End Function PlayerLeaderboard
+
 
 setupLocal();
 drawGameBoard();
