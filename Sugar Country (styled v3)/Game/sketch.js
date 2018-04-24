@@ -15,6 +15,7 @@ var Play3Position = 1;
 var Play4Position = 1;
 var myKey = "playerPositions";
 var PlayerTileLocations = [1,1,1,1];
+var Turn = 1;
 
 //Save Player Position for Refresh
 
@@ -164,6 +165,14 @@ function drawGameBoard() {
   }
 
 }
+
+//function PlayerTurns() {
+//  $("ol").empty();
+//  Turn = ++Turn %
+//};
+
+
+
 
 function rollPlayer1() {
   $("ol").empty();

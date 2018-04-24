@@ -1,9 +1,14 @@
 #gameBoard {
   background-color: black;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
 }
 
 #title {
+  text-align: center;
 }
 
 #hud {

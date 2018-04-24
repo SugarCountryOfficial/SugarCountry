@@ -91,5 +91,62 @@ function changePlayerPicture($newPlayer, i, newIcon){
   setPlayerPicture($newPlayer, newIcon);
 
 }
+//-------------------------------------------------------------//
 
+var MyPlayerIcons = "PlayerIcons";
+function setupLocal() {
+  console.log("Starting Setup");
+  if(localStorage.getItem(MyPlayerIcons) !== null) {
+    let myItemsString2 = localStorage.getItem(MyPlayerIcons);
+    playersIcon = JSON.parse(myItemsString2);
+  }
+
+  $("#PlayButton").on("click", function() {
+
+    playersIcon[0] = playersIcon[0];
+    playersIcon[1] = playersIcon[1];
+    playersIcon[2] = playersIcon[2];
+    playersIcon[3] = playersIcon[3];
+
+    saveItems1();
+  })
+
+  ;
+  console.log("Finished Setup");
+
+} // setupLocal
+
+var HowManyPlayers = "Player Count"
+function setupLocal2() {
+  if(localStorage.getItem(HowManyPlayers) !== null) {
+    let myItemsString2 = localStorage.getItem(numberOfPlayers);
+    playersIcon = JSON.parse(myItemsString2);
+  }
+
+  $("#PlayButton").on("click", function() {
+
+    numberOfPlayers = numberOfPlayers;
+
+    saveItems2();
+  });
+
+} // setupLocal
+
+function saveItems1() {
+  console.log("Starting save");
+  console.log(playersIcon);
+  let myItemsString1 = JSON.stringify(playersIcon);
+  localStorage.setItem(MyPlayerIcons, myItemsString1);
+  console.log("Finished save");
+}
+
+function saveItems2() {
+  console.log("Starting save");
+  console.log(numberOfPlayers);
+  let myItemsString2 = JSON.stringify(numberOfPlayers);
+  localStorage.setItem(HowManyPlayers, myItemsString2);
+  console.log("Finished save");
+}
+setupLocal();
+setupLocal2();
 runMenu();
