@@ -99,12 +99,12 @@ function drawGameBoard() {
       ctx.fillStyle = "#664444";
       ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
     }
-    else if (gameMap[i].valueOf() % 5 == 0 && gameMap[i].valueOf() != 40) {
+    else if (gameMap[i].valueOf() % 5 == 0 && gameMap[i].valueOf() != 40 && gameMap[i].valueOf() != 60) {
       //special tiles
       ctx.fillStyle = "#ff9933";
       ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
     }
-    else if (gameMap[i].valueOf() == 40) {
+    else if (gameMap[i].valueOf() == 40 || gameMap[i].valueOf() == 60) {
       //SUPER special tile
       ctx.fillStyle = "#ccff33";
       ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
