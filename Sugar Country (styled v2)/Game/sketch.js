@@ -437,6 +437,208 @@ function PlayerLeaderboard() {
 
   } // End 4 > 1 + 2 + 3
 
+//*********************************BEGIN TIES****************************//
+  if (Play1Position == Play2Position) {
+      $("#Leaderboard").append($("<li>").text("Player 1 and Player 2 are tied at: " + Play1Position));
+
+      if (Play3Position > Play4Position) {
+          $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+          $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+      } //End 3 > 4
+      if (Play4Position > Play3Position) {
+          $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+          $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+      } //End 4 > 3
+      if (Play4Position == Play3Position) {
+          $("#Leaderboard").append($("<li>").text("Player 3 and Player 4 are tied at: " + Play3Position));
+      } //End 4 = 3
+
+  }//End 1 = 2
+  if (Play1Position == Play3Position) {
+      $("#Leaderboard").append($("<li>").text("Player 1 and Player 3 are tied at: " + Play1Position));
+
+      if (Play2Position > Play4Position) {
+          $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+          $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+      } //End 2 > 4
+      if (Play4Position > Play2Position) {
+          $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+          $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+      } //End 4 > 2
+      if (Play4Position == Play2Position) {
+          $("#Leaderboard").append($("<li>").text("Player 2 and Player 4 are tied at: " + Play4Position));
+      } //End 4 = 2
+
+  }//End 1 = 3
+  if (Play1Position == Play4Position) {
+      $("#Leaderboard").append($("<li>").text("Player 1 and Player 4 are tied at: " + Play1Position));
+
+      if (Play2Position > Play3Position) {
+          $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+          $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+      } //End 2 > 3
+      if (Play3Position > Play2Position) {
+          $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+          $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+      } //End 3 > 2
+      if (Play3Position == Play2Position) {
+          $("#Leaderboard").append($("<li>").text("Player 2 and Player 3 are tied at: " + Play4Position));
+      } //End 3 = 2
+
+  }//End 1 = 4
+
+//End 1 ==
+//*********************************Play2 TIES****************************//
+if (Play2Position == Play1Position) {
+    $("#Leaderboard").append($("<li>").text("Player 2 and Player 1 are tied at: " + Play2Position));
+
+    if (Play3Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+    } //End 3 > 4
+    if (Play4Position > Play3Position) {
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+    } //End 4 > 3
+    if (Play4Position == Play3Position) {
+        $("#Leaderboard").append($("<li>").text("Player 3 and Player 4 are tied at: " + Play3Position));
+    } //End 4 = 3
+
+}//End 2 = 1
+if (Play2Position == Play3Position) {
+    $("#Leaderboard").append($("<li>").text("Player 2 and Player 3 are tied at: " + Play2Position));
+
+    if (Play1Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+    } //End 1 > 4
+    if (Play4Position > Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+    } //End 4 > 1
+    if (Play4Position == Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 and Player 4 are tied at: " + Play1Position));
+    } //End 4 = 1
+
+}//End 2 = 3
+if (Play2Position == Play4Position) {
+    $("#Leaderboard").append($("<li>").text("Player 2 and Player 4 are tied at: " + Play2Position));
+
+    if (Play1Position > Play3Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+    } //End 1 > 3
+    if (Play3Position > Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+    } //End 3 > 1
+    if (Play3Position == Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 and Player 3 are tied at: " + Play1Position));
+    } //End 3 = 1
+
+}//End 2 = 4
+
+//End 2 ==
+//*********************************Play3 TIES****************************//
+if (Play3Position == Play1Position) {
+    $("#Leaderboard").append($("<li>").text("Player 3 and Player 1 are tied at: " + Play3Position));
+
+    if (Play2Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+    } //End 3 > 4
+    if (Play4Position > Play2Position) {
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+    } //End 4 > 3
+    if (Play4Position == Play2Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 and Player 4 are tied at: " + Play2Position));
+    } //End 4 = 2
+
+}//End 3 = 1
+if (Play3Position == Play2Position) {
+    $("#Leaderboard").append($("<li>").text("Player 3 and Player 2 are tied at: " + Play3Position));
+
+    if (Play1Position > Play4Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+    } //End 1 > 4
+    if (Play4Position > Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 4 at: " + Play4Position));
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+    } //End 4 > 1
+    if (Play4Position == Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 and Player 4 are tied at: " + Play1Position));
+    } //End 4 = 1
+
+}//End 3 = 2
+if (Play3Position == Play4Position) {
+    $("#Leaderboard").append($("<li>").text("Player 3 and Player 4 are tied at: " + Play2Position));
+
+    if (Play1Position > Play2Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+    } //End 1 > 2
+    if (Play2Position > Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+    } //End 2 > 1
+    if (Play2Position == Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 and Player 2 are tied at: " + Play1Position));
+    } //End 2 = 1
+
+}//End 3 = 4
+//*********************************Play4 TIES****************************//
+if (Play4Position == Play1Position) {
+    $("#Leaderboard").append($("<li>").text("Player 4 and Player 1 are tied at: " + Play4Position));
+
+    if (Play2Position > Play3Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+    } //End 2 > 3
+    if (Play3Position > Play2Position) {
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+    } //End 3 > 2
+    if (Play3Position == Play2Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 and Player 3 are tied at: " + Play4Position));
+    } //End 3 = 2
+
+}//End 4 = 1
+if (Play4Position == Play2Position) {
+    $("#Leaderboard").append($("<li>").text("Player 3 and Player 2 are tied at: " + Play3Position));
+
+    if (Play1Position > Play3Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+    } //End 1 > 3
+    if (Play3Position > Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 3 at: " + Play3Position));
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+    } //End 3 > 1
+    if (Play3Position == Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 and Player 3 are tied at: " + Play1Position));
+    } //End 3 = 1
+
+}//End 4 = 2
+if (Play4Position == Play3Position) {
+    $("#Leaderboard").append($("<li>").text("Player 3 and Player 4 are tied at: " + Play2Position));
+
+    if (Play1Position > Play2Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+    } //End 1 > 2
+    if (Play2Position > Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 2 at: " + Play2Position));
+        $("#Leaderboard").append($("<li>").text("Player 1 at: " + Play1Position));
+    } //End 2 > 1
+    if (Play2Position == Play1Position) {
+        $("#Leaderboard").append($("<li>").text("Player 1 and Player 2 are tied at: " + Play1Position));
+    } //End 2 = 1
+
+}//End 4 = 3
+
+//End 4 ==
 } //End Function PlayerLeaderboard
 
 

@@ -1,5 +1,7 @@
 Leaderboard added:
 	* Needs to be centered in CSS. Too tired to figure out how to do it.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4/22/18
 
 v2 additions:
 	-leaderboard CSS fixed so status bar no longer goes off screen
@@ -8,3 +10,15 @@ v2 additions:
 	-added a CSS class that can be assigned to whichever player's turn it is
 	-Player numbers represented on the board (I figured it'd be way too small to draw
 	the players icons onto the game board)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4/23/18
+
+Minor fixes:
+	-Working on fixing issue where having two players on the same tile makes the leaderboard appear blank.
+		-Taking a LOT longer than I expected. Keep finding more issues the further i go with this. Code is getting VERY long.
+	-Attempted to start saving player icon selection from main menu to input it into the gameboard.
+	-Gave the game a slight off-white background color to make it less blank. Can be changed easily if you do not like it.
+		-Noted the gameboard is not centered but the player selection area and the leaderboard are. Could you even that out please? Thank you!
+	-Started to fiddle with the special tiles.
+	
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
