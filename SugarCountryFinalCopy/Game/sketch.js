@@ -254,7 +254,7 @@ function Nuke() {
 //*****************THICCBOI*****************//
 function PlayerLeaderboard() {
   LeaderboardInfo = PlayerTileLocations.slice();
-  LeaderboardInfo.sort(function(a,b){return a-b});
+  LeaderboardInfo.sort(function(a,b){return b-a});
 
 
 } //End Function PlayerLeaderboard
