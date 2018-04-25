@@ -20,6 +20,7 @@ var LeaderboardInfo = [1,1,1,1];
 
 //Save Player Position for Refresh
 
+
 function setupLocal() {
   if(localStorage.getItem(myKey) !== null) {
     let myItemsString = localStorage.getItem(myKey);
@@ -38,12 +39,12 @@ function setupLocal() {
       rollPlayer1();
       PlayerTileLocations[0] = Play1Position;
       PlayerLeaderboard()
-      saveItems();
       Turn = (Turn % 4) +1;
       $('.myTurn').removeClass('myTurn');
       $("#Player2Hud").addClass('myTurn');
-
       console.log(Turn);
+      saveItems();
+      saveItems3()
     }
   });
 
@@ -52,13 +53,12 @@ function setupLocal() {
       rollPlayer2();
       PlayerTileLocations[1] = Play2Position;
       PlayerLeaderboard()
-      saveItems();
       Turn = (Turn % 4) +1;
       $('.myTurn').removeClass('myTurn');
       $("#Player3Hud").addClass('myTurn');
-
       console.log(Turn);
-
+      saveItems();
+      saveItems3()
     }
   });
 
@@ -67,13 +67,12 @@ function setupLocal() {
       rollPlayer3();
       PlayerTileLocations[2] = Play3Position;
       PlayerLeaderboard()
-      saveItems();
       Turn = (Turn % 4) +1;
       $('.myTurn').removeClass('myTurn');
       $("#Player4Hud").addClass('myTurn');
-
       console.log(Turn);
-
+      saveItems();
+      saveItems3()
     }
   });
 
@@ -82,13 +81,12 @@ function setupLocal() {
       rollPlayer4();
       PlayerTileLocations[3] = Play4Position;
       PlayerLeaderboard()
-      saveItems();
       Turn = (Turn % 4) +1;
       $('.myTurn').removeClass('myTurn');
       $("#Player1Hud").addClass('myTurn');
-
       console.log(Turn);
-
+      saveItems();
+      saveItems3()
     }
   });
 
@@ -97,13 +95,40 @@ function setupLocal() {
     Nuke();
     PlayerTileLocations = [1,1,1,1];
     Turn = 1;
+    $('.myTurn').removeClass('myTurn');
+    $("#Player1Hud").addClass('myTurn');
     saveItems();
+    saveItems3();
 
   });
-
-
-
 } // setupLocal
+
+var myKeyTurns = "Player Turn";
+function setupLocal3() {
+  if(localStorage.getItem(myKeyTurns) !== null) {
+    /* let myItemsString2 = localStorage.getItem(Turn);
+    let Turns = JSON.parse(myItemsString2);
+    Turn = Turns; */
+    Turn = localStorage.getItem(myKeyTurns);
+    if (Turn == 1) {
+      $("#Player1Hud").addClass("myTurn");
+    };
+    if (Turn == 2) {
+      $("#Player2Hud").addClass("myTurn");
+    };
+    if (Turn == 3) {
+      $("#Player3Hud").addClass("myTurn");
+    };
+    if (Turn == 4) {
+      $("#Player4Hud").addClass("myTurn");
+    };
+  }
+}
+
+function saveItems3() {
+  console.log("Turn " + Turn);
+  localStorage.setItem(myKeyTurns, Turn);
+}
 
 function saveItems() {
   console.log("Starting save");
@@ -155,8 +180,6 @@ function drawGameBoard() {
       ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
     }
 
-
-
     //start and end tiles
     if (gameMap[i].valueOf() == 1) {
       ctx.font = "20px Georgia";
@@ -205,11 +228,6 @@ function drawGameBoard() {
 
 }
 
-//function PlayerTurns() {
-//  $("ol").empty();
-//  Turn = ++Turn %
-//};
-
 
 
 
@@ -220,13 +238,9 @@ function rollPlayer1() {
   if (Play1Position >= 72) {
     Play1Position = 72;
   }
-
   drawGameBoard();
-
   console.log("Player 1 rolled a " + rollNum);
   $('#status').text("Player 1 rolled a " + rollNum + "!");
-
-
 }
 
 function rollPlayer2() {
@@ -236,13 +250,9 @@ function rollPlayer2() {
   if (Play2Position >= 72) {
     Play2Position = 72;
   }
-
   drawGameBoard();
-
   console.log("Player 2 rolled a " + rollNum);
     $('#status').text("Player 2 rolled a " + rollNum + "!");
-
-
 }
 
 function rollPlayer3() {
@@ -252,14 +262,9 @@ function rollPlayer3() {
   if (Play3Position >= 72) {
     Play3Position = 72;
   }
-
   drawGameBoard();
-
   console.log("Player 3 rolled a " + rollNum);
     $('#status').text("Player 3 rolled a " + rollNum + "!");
-
-
-
 }
 
 function rollPlayer4() {
@@ -269,13 +274,9 @@ function rollPlayer4() {
   if (Play4Position >= 72) {
     Play4Position = 72;
   }
-
   drawGameBoard();
-
   console.log("Player 4 rolled a " + rollNum);
     $('#status').text("Player 4 rolled a " + rollNum + "!");
-
-
 }
 
 function Nuke() {
@@ -321,4 +322,5 @@ function PlayerLeaderboard() {
 
 
 setupLocal();
+setupLocal3();
 drawGameBoard();

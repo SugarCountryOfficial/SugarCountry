@@ -43,6 +43,7 @@ function createPlayerTables() {
     $newPlayer.append('<br><br>');
 
     let myIcon = i;
+    console.log(playersIcon);
     setPlayerPicture($newPlayer, playersIcon[i]);
 
     //change character icon
@@ -109,9 +110,7 @@ function setupLocal() {
     playersIcon[3] = playersIcon[3];
 
     saveItems1();
-  })
-
-  ;
+  });
   console.log("Finished Setup");
 
 } // setupLocal
