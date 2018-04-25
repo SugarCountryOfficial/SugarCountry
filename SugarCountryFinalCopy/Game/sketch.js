@@ -257,7 +257,6 @@ function PlayerLeaderboard() {
   LeaderboardInfo = PlayerTileLocations.slice();
   LeaderboardInfo.sort(function(a,b){return b-a});
     for (let i = 0; i < PlayerTileLocations.length; i++) {
-          let myPlayer = PlayerTileLocations[i];
           $("#Leaderboard").append($("<li> </li>").text("Player " + LeaderboardInfo[i]));
         }
 
