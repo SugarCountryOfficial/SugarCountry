@@ -1,0 +1,99 @@
+#gameBoard {
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
+
+#title {
+  text-align: center;
+}
+
+#hud {
+  margin: auto;
+  width: 1600px;
+  height: 200px;
+}
+
+.playersHuds {
+  text-align: center;
+  float: left;
+  border: 2px solid black;
+  background-color: #ff66ff;
+  height: 100%;
+  width: 14.7%;
+}
+
+#mainHud {
+  text-align: center;
+  float: left;
+  background-color: #66ff66;
+  height: 100%;
+  width: 40%;
+}
+
+#status {
+  margin: auto;
+  margin-top: 4%;
+
+  border: 1px solid black;
+  background: white;
+  width: 75%;
+  height: 25%;
+}
+
+#HorizontalLine {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
+}
+
+#Leaderboard {
+  width: 75%;
+  height: 25%;
+
+}
+
+#Score {
+
+}
+
+#lbTitle {
+  margin-top: 1%;
+  height: 5%;
+}
+
+.playerPic {
+  border: 1px solid black;
+  margin: auto;
+  margin-bottom: 2%;
+  width: 50%;
+  height: 50%;
+}
+
+#p1Pic {
+  background-color: red;
+}
+#p2Pic {
+  background-color: blue;
+}
+#p3Pic {
+  background-color: green;
+}
+#p4Pic {
+  background-color: yellow;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+/* CSS ID for bordering which player's turn it is*/
+.myTurn {
+  background-color: #3399ff;
+}
