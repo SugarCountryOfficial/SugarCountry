@@ -1,0 +1,73 @@
+body {
+  background-color: #33ccff;
+}
+
+#title {
+  text-align: center;
+  font-size: 64px;
+  color: #66ff66;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+#mainBox {
+  width: 100%;
+  display: block;
+  margin: auto 0;
+  border: 2px solid blue;
+  border-radius: 4px;
+  background-color: #ff66ff;
+}
+
+p {
+  color: #66ff66;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#PlayButton {
+    width: 6em;
+    border: 2px solid green;
+    background: #ffe;
+    border-radius: 5px;
+}
+a {
+    display: block;
+    width: 100%;
+    line-height: 2em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+a:hover {
+    color: red;
+    background: #eff;
+}
+
+#myForm {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+.playerTable {
+  border: 2px solid blue;
+  padding-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+.selectionTable {
+  border: 2px solid blue;
+  width: 100px;
+  background-color: white;
+}
+
+.selectionHighlight {
+  background-color: #AAAAAA;
+}
+
+.playerImg {
+  width: 50%;
+  height: 50%;
+}
