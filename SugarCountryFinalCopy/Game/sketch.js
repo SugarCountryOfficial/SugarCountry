@@ -21,7 +21,6 @@ var LeaderboardInfo = [1,1,1,1];
 //Save Player Position for Refresh
 
 function setupLocal() {
-  console.log("Starting Setup");
   if(localStorage.getItem(myKey) !== null) {
     let myItemsString = localStorage.getItem(myKey);
     PlayerTileLocations = JSON.parse(myItemsString);
@@ -35,35 +34,73 @@ function setupLocal() {
   }
 
   $("#Player1Button").on("click", function() {
-    rollPlayer1();
-    PlayerTileLocations[0] = Play1Position;
-    saveItems();
-  })
+    if (Turn == 1) {
+      rollPlayer1();
+      PlayerTileLocations[0] = Play1Position;
+      PlayerLeaderboard()
+      saveItems();
+      Turn = (Turn % 4) +1;
+      $('.myTurn').removeClass('myTurn');
+      $("#Player2Hud").addClass('myTurn');
+
+      console.log(Turn);
+    }
+  });
 
   $("#Player2Button").on("click", function() {
-    rollPlayer2();
-    PlayerTileLocations[1] = Play2Position;
-    saveItems();
-  })
+    if (Turn == 2) {
+      rollPlayer2();
+      PlayerTileLocations[1] = Play2Position;
+      PlayerLeaderboard()
+      saveItems();
+      Turn = (Turn % 4) +1;
+      $('.myTurn').removeClass('myTurn');
+      $("#Player3Hud").addClass('myTurn');
+
+      console.log(Turn);
+
+    }
+  });
 
   $("#Player3Button").on("click", function() {
-    rollPlayer3();
-    PlayerTileLocations[2] = Play3Position;
-    saveItems();
-  })
+    if (Turn == 3) {
+      rollPlayer3();
+      PlayerTileLocations[2] = Play3Position;
+      PlayerLeaderboard()
+      saveItems();
+      Turn = (Turn % 4) +1;
+      $('.myTurn').removeClass('myTurn');
+      $("#Player4Hud").addClass('myTurn');
+
+      console.log(Turn);
+
+    }
+  });
 
   $("#Player4Button").on("click", function() {
-    rollPlayer4();
-    PlayerTileLocations[3] = Play4Position;
-    saveItems();
-  })
+    if (Turn == 4) {
+      rollPlayer4();
+      PlayerTileLocations[3] = Play4Position;
+      PlayerLeaderboard()
+      saveItems();
+      Turn = (Turn % 4) +1;
+      $('.myTurn').removeClass('myTurn');
+      $("#Player1Hud").addClass('myTurn');
+
+      console.log(Turn);
+
+    }
+  });
+
+  //nuke button
   $("#NukeButton").on("click", function() {
     Nuke();
     PlayerTileLocations = [1,1,1,1];
+    Turn = 1;
     saveItems();
-  })
-  ;
-  console.log("Finished Setup");
+
+  });
+
 
 
 } // setupLocal
@@ -183,7 +220,7 @@ function rollPlayer1() {
   if (Play1Position >= 72) {
     Play1Position = 72;
   }
-  PlayerLeaderboard();
+
   drawGameBoard();
 
   console.log("Player 1 rolled a " + rollNum);
@@ -199,7 +236,7 @@ function rollPlayer2() {
   if (Play2Position >= 72) {
     Play2Position = 72;
   }
-  PlayerLeaderboard();
+
   drawGameBoard();
 
   console.log("Player 2 rolled a " + rollNum);
@@ -215,7 +252,7 @@ function rollPlayer3() {
   if (Play3Position >= 72) {
     Play3Position = 72;
   }
-  PlayerLeaderboard();
+
   drawGameBoard();
 
   console.log("Player 3 rolled a " + rollNum);
@@ -232,7 +269,7 @@ function rollPlayer4() {
   if (Play4Position >= 72) {
     Play4Position = 72;
   }
-  PlayerLeaderboard();
+
   drawGameBoard();
 
   console.log("Player 4 rolled a " + rollNum);
@@ -249,6 +286,7 @@ function Nuke() {
    drawGameBoard();
    $('#status').text("");
    $("ol").empty();
+   LeaderboardInfo = [1,1,1,1];
 }
 
 
@@ -256,9 +294,26 @@ function Nuke() {
 function PlayerLeaderboard() {
   LeaderboardInfo = PlayerTileLocations.slice();
   LeaderboardInfo.sort(function(a,b){return b-a});
-    for (let i = 0; i < PlayerTileLocations.length; i++) {
-          $("#Leaderboard").append($("<li> </li>").text("Player " + LeaderboardInfo[i]));
-        }
+  for (let i = 0; i < PlayerTileLocations.length; i++) {
+    let myPlayerLB;
+    switch (LeaderboardInfo[i]) {
+      case PlayerTileLocations[0]:
+        myPlayerLB = 1;
+        break;
+      case PlayerTileLocations[1]:
+        myPlayerLB = 2;
+        break;
+      case PlayerTileLocations[2]:
+        myPlayerLB = 3;
+        break;
+      case PlayerTileLocations[3]:
+        myPlayerLB = 4;
+        break;
+      default:
+        break;
+    }//End switch
+      $("#Leaderboard").append($("<li> </li>").text("Player " + myPlayerLB + " at " + LeaderboardInfo[i]));
+  }//End For
 
 
 
