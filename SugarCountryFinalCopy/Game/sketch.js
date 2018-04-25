@@ -30,6 +30,7 @@ function setupLocal() {
       Play2Position = PlayerTileLocations[1];
       Play3Position = PlayerTileLocations[2];
       Play4Position = PlayerTileLocations[3];
+      PlayerLeaderboard()
     });
   }
 
@@ -251,10 +252,15 @@ function Nuke() {
 }
 
 
-//*****************THICCBOI*****************//
+//*****************Leaderboard*****************//
 function PlayerLeaderboard() {
   LeaderboardInfo = PlayerTileLocations.slice();
   LeaderboardInfo.sort(function(a,b){return b-a});
+    for (let i = 0; i < PlayerTileLocations.length; i++) {
+          let myPlayer = PlayerTileLocations[i];
+          $("#Leaderboard").append($("<li> </li>").text("Player " + LeaderboardInfo[i]));
+        }
+
 
 
 } //End Function PlayerLeaderboard
