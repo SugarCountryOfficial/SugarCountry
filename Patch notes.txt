@@ -25,5 +25,5 @@ Minor fixes:
 4/25/2018
 
 New Azure Instance:
-	https://sugarcountry.azurewebsites.net/SugarCountryBetaDemo/index.html
+	https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy/index.html
 	
