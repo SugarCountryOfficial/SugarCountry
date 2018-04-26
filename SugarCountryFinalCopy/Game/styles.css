@@ -17,6 +17,11 @@
   height: 200px;
 }
 
+#LogoImage {
+  width: 200px;
+  height: 200px;
+}
+
 .playersHuds {
   text-align: center;
   float: left;
@@ -90,7 +95,8 @@
 }
 
 body {
-  background-color: #f2f2f2;
+  background: linear-gradient(#ff99cc, #33ccff, #ff99cc, #ff99cc, #33ccff, #ff99cc);
+
 }
 
 /* CSS ID for bordering which player's turn it is*/

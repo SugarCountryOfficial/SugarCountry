@@ -51,16 +51,10 @@ function createPlayerTables() {
       myIcon = ++myIcon % 4;
       playersIcon[i] = icons[myIcon];
       changePlayerPicture($newPlayer, i, playersIcon[i]);
-
-
     });
 
-
     $("#tableRow").append($newPlayer);
-
   }
-
-
 }
 
 function setPlayerPicture($newPlayer, icon) {
@@ -80,8 +74,6 @@ function setPlayerPicture($newPlayer, icon) {
     default:
       $newPlayer.append('<img class="playerImg" src="Pictures/candyCane.png" />');
       break;
-
-
   }
 }
 

@@ -27,3 +27,8 @@ Minor fixes:
 New Azure Instance:
 	https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy/index.html
 	
+	-Player Counter Works
+	-Leaderboard is almost done
+	-Added logo
+		-NEEDS TO BE CENTERED
+	-Made a cotton candy background to help sell the candy theme.
