@@ -91,7 +91,6 @@ function setupLocal() {
   console.log("Starting Setup");
   if(localStorage.getItem(MyPlayerIcons) !== null) {
     let myItemsString2 = localStorage.getItem(MyPlayerIcons);
-    playersIcon = JSON.parse(myItemsString2);
   }
 
   $("#PlayButton").on("click", function() {
@@ -108,10 +107,9 @@ function setupLocal() {
 } // setupLocal
 
 var HowManyPlayers = "Player Count"
-function setupLocal2() {
+function setupLocalPlayerNumber() {
   if(localStorage.getItem(HowManyPlayers) !== null) {
     let myItemsString2 = localStorage.getItem(numberOfPlayers);
-    playersIcon = JSON.parse(myItemsString2);
   }
 
   $("#PlayButton").on("click", function() {
@@ -139,5 +137,5 @@ function saveItems2() {
   console.log("Finished save");
 }
 setupLocal();
-setupLocal2();
+setupLocalPlayerNumber();
 runMenu();
