@@ -298,27 +298,49 @@ function Nuke() {
 
 //*****************Leaderboard*****************//
 function PlayerLeaderboard() {
-  LeaderboardInfo = PlayerTileLocations.slice();
-  LeaderboardInfo.sort(function(a,b){return b-a});
+  //LeaderboardInfo = PlayerTileLocations.slice();
+  //LeaderboardInfo.sort(function(a,b){return b-a});
+
+  let leaderboardWithNames = [];
+
+  for (var i = 0; i < PlayerTileLocations.length; i++) {
+    leaderboardWithNames[i] = [PlayerTileLocations[i], "Player " + (i+1)];
+  }
+
+  //alert(leaderboardWithNames[0][1]);
+
+  leaderboardWithNames.sort(function(a,b){
+    let x = a[0];
+    let y = b[0];
+
+    return y-x;
+  });
+  //alert(leaderboardWithNames);
+
+
+  let myPlayerLB;
   for (let i = 0; i < PlayerTileLocations.length; i++) {
-    let myPlayerLB;
-    switch (LeaderboardInfo[i]) {
-      case PlayerTileLocations[0]:
-        myPlayerLB = 1;
+    let $newItemLB = $("<li></li>").text(leaderboardWithNames[i][1] + " at " + leaderboardWithNames[i][0]);
+    $("#Leaderboard").append($newItemLB);
+    switch (leaderboardWithNames[i][1]) {
+      case "Player 1":
+        $newItemLB.addClass('player1color');
         break;
-      case PlayerTileLocations[1]:
-        myPlayerLB = 2;
+      case "Player 2":
+        $newItemLB.addClass('player2color');
         break;
-      case PlayerTileLocations[2]:
-        myPlayerLB = 3;
+      case "Player 3":
+        $newItemLB.addClass('player3color');
         break;
-      case PlayerTileLocations[3]:
-        myPlayerLB = 4;
+      case "Player 4":
+        $newItemLB.addClass('player4color');
         break;
       default:
         break;
-    }//End switch
-    $("#Leaderboard").append($("<li></li>").text("Player " + myPlayerLB + " at " + LeaderboardInfo[i]));
+
+    }
+
+
   }//End For
 } //End Function PlayerLeaderboard
 
