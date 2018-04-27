@@ -316,16 +316,12 @@ function PlayerLeaderboard() {
 //End Game Menu:
 function EndGameMenu() {
   if (PlayerTileLocations[0] == 72) {
-    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
   }
   if (PlayerTileLocations[1] == 72) {
-    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
   }
   if (PlayerTileLocations[2] == 72) {
-    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
   }
   if (PlayerTileLocations[3] == 72) {
-    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
   }
 }
 
