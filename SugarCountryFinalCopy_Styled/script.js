@@ -25,14 +25,10 @@ function runMenu() {
     $('.selectionHighlight').removeClass('selectionHighlight');
     $(this).addClass('selectionHighlight');
     numberOfPlayers = $(this).val();
-
     createPlayerTables();
 
-
   });
-
-
-}
+}//End Run Menu
 
 function createPlayerTables() {
   $("#tableRow").empty();
@@ -104,6 +100,16 @@ function setupLocal() {
   });
   console.log("Finished Setup");
 
+  $("#NUKEAGAIN").on("click", function() {
+    createPlayerTables();
+    numberOfPlayers = 2;
+    icons = [
+      "candyCane",
+      "cottonCandy",
+      "lollipop",
+      "wrappedCandy"
+    ];
+  });
 } // setupLocal
 
 var HowManyPlayers = "Player Count"

@@ -4,6 +4,42 @@
   margin:auto;
   width: 10%;
 }
+
+#Player1Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#Player2Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#Player3Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#Player4Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#NukeButton {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
 #gameBoard {
   background-color: black;
   margin-left: auto;
@@ -98,7 +134,6 @@
 
 body {
   background: linear-gradient(#ff99cc, #33ccff, #ff99cc, #ff99cc, #33ccff, #ff99cc);
-
 }
 
 /* CSS ID for bordering which player's turn it is*/

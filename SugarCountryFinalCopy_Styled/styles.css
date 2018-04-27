@@ -4,7 +4,6 @@ body {
 }
 
 #LogoImage {
-
   display: block;
   margin: auto;
   width: 20%;
@@ -38,6 +37,14 @@ p {
     background: #ffe;
     border-radius: 5px;
 }
+
+#NUKEAGAIN {
+  width: 12em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
 a {
     display: block;
     width: 100%;

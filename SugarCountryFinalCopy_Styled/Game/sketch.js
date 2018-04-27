@@ -20,7 +20,7 @@ var LeaderboardInfo = [1,1,1,1];
 
 //Save Player Position for Refresh
 
-
+//Setup Game Info
 function setupLocal() {
   if(localStorage.getItem(myKey) !== null) {
     let myItemsString = localStorage.getItem(myKey);
@@ -34,6 +34,7 @@ function setupLocal() {
     });
   }
 
+  //Player Button Click Functions
   $("#Player1Button").on("click", function() {
     if (Turn == 1) {
       rollPlayer1();
@@ -43,8 +44,8 @@ function setupLocal() {
       $('.myTurn').removeClass('myTurn');
       $("#Player2Hud").addClass('myTurn');
       console.log(Turn);
-      saveItems();
-      saveItems3()
+      saveTileLocations();
+      saveTurns()
     }
   });
 
@@ -57,8 +58,8 @@ function setupLocal() {
       $('.myTurn').removeClass('myTurn');
       $("#Player3Hud").addClass('myTurn');
       console.log(Turn);
-      saveItems();
-      saveItems3()
+      saveTileLocations();
+      saveTurns()
     }
   });
 
@@ -71,8 +72,8 @@ function setupLocal() {
       $('.myTurn').removeClass('myTurn');
       $("#Player4Hud").addClass('myTurn');
       console.log(Turn);
-      saveItems();
-      saveItems3()
+      saveTileLocations();
+      saveTurns()
     }
   });
 
@@ -85,8 +86,8 @@ function setupLocal() {
       $('.myTurn').removeClass('myTurn');
       $("#Player1Hud").addClass('myTurn');
       console.log(Turn);
-      saveItems();
-      saveItems3()
+      saveTileLocations();
+      saveTurns()
     }
   });
 
@@ -97,18 +98,17 @@ function setupLocal() {
     Turn = 1;
     $('.myTurn').removeClass('myTurn');
     $("#Player1Hud").addClass('myTurn');
-    saveItems();
-    saveItems3();
+    saveTileLocations();
+    saveTurns();
+  });//End Nuke Button
 
-  });
 } // setupLocal
 
 var myKeyTurns = "Player Turn";
-function setupLocal3() {
+
+function setupLocalTurns() {
+  console.log("Retrieving Turns");
   if(localStorage.getItem(myKeyTurns) !== null) {
-    /* let myItemsString2 = localStorage.getItem(Turn);
-    let Turns = JSON.parse(myItemsString2);
-    Turn = Turns; */
     Turn = localStorage.getItem(myKeyTurns);
     if (Turn == 1) {
       $("#Player1Hud").addClass("myTurn");
@@ -123,14 +123,15 @@ function setupLocal3() {
       $("#Player4Hud").addClass("myTurn");
     };
   }
-}
+  console.log("Retrieved Turns");
+} //End setupLocalTurns
 
-function saveItems3() {
+function saveTurns() {
   console.log("Turn " + Turn);
   localStorage.setItem(myKeyTurns, Turn);
-}
+} //End SaveItemsTurn
 
-function saveItems() {
+function saveTileLocations() {
   console.log("Starting save");
   console.log(PlayerTileLocations);
   let myItemsString = JSON.stringify(PlayerTileLocations);
@@ -221,15 +222,10 @@ function drawGameBoard() {
       ctx.fillText("4", xPosition + 64, yPosition - 5);
     }
 
-
     xPosition += tileSize;
 
   }
-
-}
-
-
-
+}//End Draw Gameboard
 
 function rollPlayer1() {
   $("ol").empty();
@@ -241,7 +237,7 @@ function rollPlayer1() {
   drawGameBoard();
   console.log("Player 1 rolled a " + rollNum);
   $('#status').text("Player 1 rolled a " + rollNum + "!");
-}
+} //End Roll Player 1
 
 function rollPlayer2() {
   $("ol").empty();
@@ -253,7 +249,7 @@ function rollPlayer2() {
   drawGameBoard();
   console.log("Player 2 rolled a " + rollNum);
     $('#status').text("Player 2 rolled a " + rollNum + "!");
-}
+} //End Roll Player 2
 
 function rollPlayer3() {
   $("ol").empty();
@@ -265,7 +261,7 @@ function rollPlayer3() {
   drawGameBoard();
   console.log("Player 3 rolled a " + rollNum);
     $('#status').text("Player 3 rolled a " + rollNum + "!");
-}
+} //End Roll Player 3
 
 function rollPlayer4() {
   $("ol").empty();
@@ -277,7 +273,7 @@ function rollPlayer4() {
   drawGameBoard();
   console.log("Player 4 rolled a " + rollNum);
     $('#status').text("Player 4 rolled a " + rollNum + "!");
-}
+} //End Roll Player 4
 
 function Nuke() {
    Play1Position = 1;
@@ -288,7 +284,7 @@ function Nuke() {
    $('#status').text("");
    $("ol").empty();
    LeaderboardInfo = [1,1,1,1];
-}
+} //End Nuke Function
 
 
 //*****************Leaderboard*****************//
@@ -315,12 +311,25 @@ function PlayerLeaderboard() {
     }//End switch
       $("#Leaderboard").append($("<li> </li>").text("Player " + myPlayerLB + " at " + LeaderboardInfo[i]));
   }//End For
-
-
-
 } //End Function PlayerLeaderboard
 
+//End Game Menu:
+function EndGameMenu() {
+  if (PlayerTileLocations[0] == 72) {
+    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
+  }
+  if (PlayerTileLocations[1] == 72) {
+    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
+  }
+  if (PlayerTileLocations[2] == 72) {
+    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
+  }
+  if (PlayerTileLocations[3] == 72) {
+    window.location = "https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/EndGame/Menu.html";
+  }
+}
 
 setupLocal();
-setupLocal3();
+setupLocalTurns();
 drawGameBoard();
+EndGameMenu();

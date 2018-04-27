@@ -32,3 +32,14 @@ New Azure Instance:
 	-Added logo
 		-NEEDS TO BE CENTERED
 	-Made a cotton candy background to help sell the candy theme.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4/26/2018
+New Azure Instance:
+	https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/index.html
+		Keep pushing over this instance. We don't need more versions at this point.
+	-Leaderboard is refreshed. Still not 100% but a hell of a lot better than before.
+	-Brought over the same CSS script for the "Play Game" button on the main menu onto the Player x roll buttons, 
+		you can change it if you want. Wanted to keep it uniform.
+	-Fixed the main menu glitch that caused you to be locked out of choosing a player due to local storage.
+	-Generalled cleaned up the Javascript. Tried to remove Ninjacode and add comments to describe what we're doing.
+	-Main Menu nuke button kinda works. Not sure if we really need it though. Let me know what you think.
