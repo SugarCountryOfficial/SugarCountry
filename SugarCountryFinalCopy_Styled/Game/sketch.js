@@ -30,7 +30,7 @@ function setupLocal() {
       Play2Position = PlayerTileLocations[1];
       Play3Position = PlayerTileLocations[2];
       Play4Position = PlayerTileLocations[3];
-      PlayerLeaderboard()
+      //PlayerLeaderboard();
     });
   }
 
@@ -39,7 +39,7 @@ function setupLocal() {
     if (Turn == 1) {
       rollPlayer1();
       PlayerTileLocations[0] = Play1Position;
-      PlayerLeaderboard()
+      PlayerLeaderboard();
       Turn = (Turn % 4) +1;
       $('.myTurn').removeClass('myTurn');
       $("#Player2Hud").addClass('myTurn');
@@ -292,6 +292,7 @@ function Nuke() {
    $('#status').text("");
    $("ol").empty();
    LeaderboardInfo = [1,1,1,1];
+   PlayerLeaderboard();
 } //End Nuke Function
 
 
@@ -317,7 +318,7 @@ function PlayerLeaderboard() {
       default:
         break;
     }//End switch
-      $("#Leaderboard").append($("<li> </li>").text("Player " + myPlayerLB + " at " + LeaderboardInfo[i]));
+    $("#Leaderboard").append($("<li></li>").text("Player " + myPlayerLB + " at " + LeaderboardInfo[i]));
   }//End For
 } //End Function PlayerLeaderboard
 
@@ -378,4 +379,5 @@ function specialTileCheck(myPosition, player) {
 setupLocal();
 setupLocalTurns();
 drawGameBoard();
+PlayerLeaderboard();
 EndGameMenu();
