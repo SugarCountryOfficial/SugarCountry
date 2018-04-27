@@ -316,12 +316,20 @@ function PlayerLeaderboard() {
 //End Game Menu:
 function EndGameMenu() {
   if (PlayerTileLocations[0] == 72) {
+    Turn = 1;
+    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
   }
   if (PlayerTileLocations[1] == 72) {
+    Turn = 2;
+    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 2 Wins!"));
   }
   if (PlayerTileLocations[2] == 72) {
+    Turn = 3;
+    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
   }
   if (PlayerTileLocations[3] == 72) {
+    Turn = 4;
+    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
   }
 }
 
