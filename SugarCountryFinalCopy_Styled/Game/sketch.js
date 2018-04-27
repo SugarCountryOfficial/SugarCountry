@@ -237,6 +237,8 @@ function rollPlayer1() {
   drawGameBoard();
   console.log("Player 1 rolled a " + rollNum);
   $('#status').text("Player 1 rolled a " + rollNum + "!");
+  Play1Position = specialTileCheck(Play1Position, 1);
+  drawGameBoard();
 } //End Roll Player 1
 
 function rollPlayer2() {
@@ -248,7 +250,9 @@ function rollPlayer2() {
   }
   drawGameBoard();
   console.log("Player 2 rolled a " + rollNum);
-    $('#status').text("Player 2 rolled a " + rollNum + "!");
+  $('#status').text("Player 2 rolled a " + rollNum + "!");
+  Play2Position = specialTileCheck(Play2Position, 2);
+  drawGameBoard();
 } //End Roll Player 2
 
 function rollPlayer3() {
@@ -260,7 +264,9 @@ function rollPlayer3() {
   }
   drawGameBoard();
   console.log("Player 3 rolled a " + rollNum);
-    $('#status').text("Player 3 rolled a " + rollNum + "!");
+  $('#status').text("Player 3 rolled a " + rollNum + "!");
+  Play3Position = specialTileCheck(Play3Position, 3);
+  drawGameBoard();
 } //End Roll Player 3
 
 function rollPlayer4() {
@@ -272,7 +278,9 @@ function rollPlayer4() {
   }
   drawGameBoard();
   console.log("Player 4 rolled a " + rollNum);
-    $('#status').text("Player 4 rolled a " + rollNum + "!");
+  $('#status').text("Player 4 rolled a " + rollNum + "!");
+  Play4Position = specialTileCheck(Play4Position, 4);
+  drawGameBoard();
 } //End Roll Player 4
 
 function Nuke() {
@@ -332,6 +340,40 @@ function EndGameMenu() {
     $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
   }
 }
+
+//special tiles checker
+function specialTileCheck(myPosition, player) {
+  if (myPosition % 5 == 0 && myPosition != 40 && myPosition != 60) {
+    alert("Player " + player + " landed on a special tile!");
+    let mySpecial = Math.floor(Math.random() * 3) + 1;  //which special player gets
+    let tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
+    switch (mySpecial) {
+      case 1:
+        alert("Player " + player + " go forward " + tileAmount + " tiles!");
+        myPosition += tileAmount;
+        break;
+      case 2:
+        alert("Player " + player + " go back " + tileAmount + " tiles!");
+        myPosition -= tileAmount;
+        break;
+      case 3:
+        alert("Player " + player + " loses a turn");
+        break;
+      default:
+        break;
+    }
+  }
+  if (myPosition == 40) {
+    alert("Player " + player + " landed on a SUPER special tile!");
+    myPosition += 20;
+  }
+  return myPosition;
+
+}
+
+//
+
+
 
 setupLocal();
 setupLocalTurns();
