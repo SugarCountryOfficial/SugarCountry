@@ -104,16 +104,6 @@ function setupLocal() {
     saveTurns();
   })
 
-  $("#EndGameNukeButton").on("click", function() {
-    Nuke();
-    PlayerTileLocations = [1,1,1,1];
-    Turn = 1;
-    $('.myTurn').removeClass('myTurn');
-    $("#Player1Hud").addClass('myTurn');
-    closeNav();
-    saveTileLocations();
-    saveTurns();
-  });//End Nuke Button
 
 } // setupLocal
 
@@ -306,6 +296,17 @@ function Nuke() {
    $("ol").empty();
    LeaderboardInfo = [1,1,1,1];
    PlayerLeaderboard();
+}
+function nukeEndGame() {
+  Play1Position = 1;
+  Play2Position = 1;
+  Play3Position = 1;
+  Play4Position = 1;
+  drawGameBoard();
+  $('#status').text("");
+  $("ol").empty();
+  LeaderboardInfo = [1,1,1,1];
+  PlayerLeaderboard();
 } //End Nuke Function
 
 
