@@ -178,7 +178,6 @@ body {
     transition: 0.5s;
 }
 
-
 .overlay-content {
     position: relative;
     top: 25%;
@@ -199,7 +198,6 @@ body {
 .overlay a:hover, .overlay a:focus {
     color: #f1f1f1;
 }
-
 
 @media screen and (max-height: 450px) {
     .overlay a {font-size: 20px}

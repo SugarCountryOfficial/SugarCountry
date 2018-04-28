@@ -49,6 +49,9 @@ function setupLocal() {
       saveTileLocations();
       saveTurns()
     }
+    if (PlayerTileLocations[0] == 72) {
+      $("#overlay-content").append($("<li> </li>").text("Player 1 Wins!"));
+    }
   });
 
   $("#Player2Button").on("click", function() {
@@ -62,6 +65,9 @@ function setupLocal() {
       console.log(Turn);
       saveTileLocations();
       saveTurns()
+    }
+    if (PlayerTileLocations[0] == 72) {
+      $("#overlay-content").append($("<li> </li>").text("Player 2 Wins!"));
     }
   });
 
@@ -77,6 +83,9 @@ function setupLocal() {
       saveTileLocations();
       saveTurns()
     }
+    if (PlayerTileLocations[0] == 72) {
+      $("#overlay-content").append($("<li> </li>").text("Player 3 Wins!"));
+    }
   });
 
   $("#Player4Button").on("click", function() {
@@ -90,6 +99,9 @@ function setupLocal() {
       console.log(Turn);
       saveTileLocations();
       saveTurns()
+    }
+    if (PlayerTileLocations[0] == 72) {
+      $("#overlay-content").append($("<li> </li>").text("Player 4 Wins!"));
     }
   });
 
@@ -307,6 +319,8 @@ function nukeEndGame() {
   $("ol").empty();
   LeaderboardInfo = [1,1,1,1];
   PlayerLeaderboard();
+  $('#overlay-content li:last-child').remove();
+  closeNav();
 } //End Nuke Function
 
 
@@ -409,7 +423,6 @@ function specialTileCheck(myPosition, player) {
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
 }
-
 /* Close */
 function closeNav() {
     document.getElementById("myNav").style.height = "0%";
