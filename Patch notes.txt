@@ -52,4 +52,10 @@ New Azure Instance:
 		-have not yet implemented lose turn functionality
 		-needs to a notification to be implemented into the DOM (right now it is
 		just creating pop up alerts)
+-------------------------------------------------------------------------------------------
+4/28/2018
+	-End Game Menu implimented
+	
+
+	-Could you add borders around the leaderboard? Just so it looks a little more smooth and less harsh color transitions. Thank
 		

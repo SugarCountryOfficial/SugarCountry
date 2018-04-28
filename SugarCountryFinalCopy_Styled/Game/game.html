@@ -8,6 +8,21 @@
 <body>
 
   <img src="../Pictures/SugarCountryLogo.png" id="LogoImage" alt="SugarCountry"/>
+  <!-- The overlay -->
+<div id="myNav" class="overlay">
+
+  <!-- Overlay content -->
+  <ul class="overlay-content">
+    <button id = 'EndGameNukeButton'>Play Again</button>
+    <a href="https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/index.html">Change Settings</a>
+    <a onclick = "nuke()" href="https://sugarcountry.azurewebsites.net/SugarCountryFinalCopy_Styled/Game/game.html">Play Again</a>
+  </ul>
+
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+<span onclick="openNav()"></span>
+
   <canvas id="gameBoard" width="1600" height="560" style="border:1px solid black"></canvas>
   <div id="hud">
     <div id="Player1Hud" class="playersHuds">

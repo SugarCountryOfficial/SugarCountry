@@ -34,6 +34,8 @@ function setupLocal() {
     });
   }
 
+  EndGameMenu();
+
   //Player Button Click Functions
   $("#Player1Button").on("click", function() {
     if (Turn == 1) {
@@ -98,6 +100,17 @@ function setupLocal() {
     Turn = 1;
     $('.myTurn').removeClass('myTurn');
     $("#Player1Hud").addClass('myTurn');
+    saveTileLocations();
+    saveTurns();
+  })
+
+  $("#EndGameNukeButton").on("click", function() {
+    Nuke();
+    PlayerTileLocations = [1,1,1,1];
+    Turn = 1;
+    $('.myTurn').removeClass('myTurn');
+    $("#Player1Hud").addClass('myTurn');
+    closeNav();
     saveTileLocations();
     saveTurns();
   });//End Nuke Button
@@ -314,9 +327,9 @@ function PlayerLeaderboard() {
     let y = b[0];
 
     return y-x;
+
   });
   //alert(leaderboardWithNames);
-
 
   let myPlayerLB;
   for (let i = 0; i < PlayerTileLocations.length; i++) {
@@ -337,10 +350,7 @@ function PlayerLeaderboard() {
         break;
       default:
         break;
-
-    }
-
-
+    }//End switch
   }//End For
 } //End Function PlayerLeaderboard
 
@@ -356,11 +366,11 @@ function EndGameMenu() {
   }
   if (PlayerTileLocations[2] == 72) {
     Turn = 3;
-    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
+    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 3 Wins!"));
   }
   if (PlayerTileLocations[3] == 72) {
     Turn = 4;
-    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
+    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 4 Wins!"));
   }
 }
 
@@ -394,12 +404,21 @@ function specialTileCheck(myPosition, player) {
 
 }
 
-//
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+/* Close */
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
 
 
 
+
+//Forced Functions
 setupLocal();
 setupLocalTurns();
 drawGameBoard();
 PlayerLeaderboard();
-EndGameMenu();
