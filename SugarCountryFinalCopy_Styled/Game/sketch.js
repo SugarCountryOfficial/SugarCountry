@@ -246,6 +246,7 @@ function rollPlayer1() {
   $('#status').text("Player 1 rolled a " + rollNum + "!");
   Play1Position = specialTileCheck(Play1Position, 1);
   drawGameBoard();
+  EndGameMenu();
 } //End Roll Player 1
 
 function rollPlayer2() {
@@ -260,6 +261,7 @@ function rollPlayer2() {
   $('#status').text("Player 2 rolled a " + rollNum + "!");
   Play2Position = specialTileCheck(Play2Position, 2);
   drawGameBoard();
+  EndGameMenu();
 } //End Roll Player 2
 
 function rollPlayer3() {
@@ -274,6 +276,7 @@ function rollPlayer3() {
   $('#status').text("Player 3 rolled a " + rollNum + "!");
   Play3Position = specialTileCheck(Play3Position, 3);
   drawGameBoard();
+  EndGameMenu();
 } //End Roll Player 3
 
 function rollPlayer4() {
@@ -288,6 +291,7 @@ function rollPlayer4() {
   $('#status').text("Player 4 rolled a " + rollNum + "!");
   Play4Position = specialTileCheck(Play4Position, 4);
   drawGameBoard();
+  EndGameMenu();
 } //End Roll Player 4
 
 function Nuke() {
@@ -428,4 +432,3 @@ setupLocal();
 setupLocalTurns();
 drawGameBoard();
 PlayerLeaderboard();
-EndGameMenu();
