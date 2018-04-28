@@ -310,7 +310,10 @@ function nukeEndGame() {
   Play2Position = 1;
   Play3Position = 1;
   Play4Position = 1;
+  PlayerTileLocations = [1,1,1,1];
   Turn = 1;
+  $('.myTurn').removeClass('myTurn');
+  $("#Player1Hud").addClass('myTurn');
   drawGameBoard();
   $('#status').text("");
   $("ol").empty();
@@ -318,6 +321,8 @@ function nukeEndGame() {
   PlayerLeaderboard();
   $('#overlay-content li:last-child').remove();
   closeNav();
+  saveTileLocations();
+  saveTurns();
 } //End Nuke Function
 
 
