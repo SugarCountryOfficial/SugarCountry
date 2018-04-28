@@ -399,19 +399,19 @@ function specialTileCheck(myPosition, player) {
 
 function EndGameMenu() {
   if (Play1Position == 72) {
-    $("#overlay-content").append($("<li> </li>").text("Player 1 Wins!"));
+    $(".overlay-content").append($("<li> </li>").text("Player 1 Wins!"));
     openNav();
   }
   if (Play2Position == 72) {
-    $("#overlay-content").append($("<li> </li>").text("Player 2 Wins!"));
+    $(".overlay-content").append($("<li> </li>").text("Player 2 Wins!"));
     openNav();
   }
   if (Play3Position == 72) {
-    $("#overlay-content").append($("<li> </li>").text("Player 3 Wins!"));
+    $(".overlay-content").append($("<li> </li>").text("Player 3 Wins!"));
     openNav();
   }
   if (Play4Position == 72) {
-    $("#overlay-content").append($("<li> </li>").text("Player 4 Wins!"));
+    $(".overlay-content").append($("<li> </li>").text("Player 4 Wins!"));
     openNav();
   }
 }
