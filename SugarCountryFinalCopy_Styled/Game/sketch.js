@@ -310,6 +310,7 @@ function nukeEndGame() {
   Play2Position = 1;
   Play3Position = 1;
   Play4Position = 1;
+  Turn = 1;
   drawGameBoard();
   $('#status').text("");
   $("ol").empty();
