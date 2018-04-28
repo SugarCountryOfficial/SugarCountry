@@ -49,9 +49,7 @@ function setupLocal() {
       saveTileLocations();
       saveTurns()
     }
-    if (PlayerTileLocations[0] == 72) {
-      $("#overlay-content").append($("<li> </li>").text("Player 1 Wins!"));
-    }
+
   });
 
   $("#Player2Button").on("click", function() {
@@ -66,9 +64,7 @@ function setupLocal() {
       saveTileLocations();
       saveTurns()
     }
-    if (PlayerTileLocations[0] == 72) {
-      $("#overlay-content").append($("<li> </li>").text("Player 2 Wins!"));
-    }
+
   });
 
   $("#Player3Button").on("click", function() {
@@ -83,9 +79,7 @@ function setupLocal() {
       saveTileLocations();
       saveTurns()
     }
-    if (PlayerTileLocations[0] == 72) {
-      $("#overlay-content").append($("<li> </li>").text("Player 3 Wins!"));
-    }
+
   });
 
   $("#Player4Button").on("click", function() {
@@ -100,9 +94,7 @@ function setupLocal() {
       saveTileLocations();
       saveTurns()
     }
-    if (PlayerTileLocations[0] == 72) {
-      $("#overlay-content").append($("<li> </li>").text("Player 4 Wins!"));
-    }
+
   });
 
   //nuke button
@@ -369,26 +361,6 @@ function PlayerLeaderboard() {
   }//End For
 } //End Function PlayerLeaderboard
 
-//End Game Menu:
-function EndGameMenu() {
-  if (PlayerTileLocations[0] == 72) {
-    Turn = 1;
-    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 1 Wins!"));
-  }
-  if (PlayerTileLocations[1] == 72) {
-    Turn = 2;
-    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 2 Wins!"));
-  }
-  if (PlayerTileLocations[2] == 72) {
-    Turn = 3;
-    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 3 Wins!"));
-  }
-  if (PlayerTileLocations[3] == 72) {
-    Turn = 4;
-    $("#WhereTheEndGameGoes").append($("<p> </p>").text("Player 4 Wins!"));
-  }
-}
-
 //special tiles checker
 function specialTileCheck(myPosition, player) {
   if (myPosition % 5 == 0 && myPosition != 40 && myPosition != 60) {
@@ -419,11 +391,31 @@ function specialTileCheck(myPosition, player) {
 
 }
 
-/* Open when someone clicks on the span element */
+//-------------------------End Game Menu ------------------------//
+
+function EndGameMenu() {
+  if (Play1Position == 72) {
+    $("#overlay-content").append($("<li> </li>").text("Player 1 Wins!"));
+    openNav();
+  }
+  if (Play2Position == 72) {
+    $("#overlay-content").append($("<li> </li>").text("Player 2 Wins!"));
+    openNav();
+  }
+  if (Play3Position == 72) {
+    $("#overlay-content").append($("<li> </li>").text("Player 3 Wins!"));
+    openNav();
+  }
+  if (Play4Position == 72) {
+    $("#overlay-content").append($("<li> </li>").text("Player 4 Wins!"));
+    openNav();
+  }
+}
+
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
 }
-/* Close */
+
 function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }
@@ -436,3 +428,4 @@ setupLocal();
 setupLocalTurns();
 drawGameBoard();
 PlayerLeaderboard();
+EndGameMenu();
