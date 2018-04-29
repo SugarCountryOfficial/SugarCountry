@@ -4,6 +4,10 @@ let mapW = 20;
 let tileSize = 80;
 let playerTileSize = 20;
 let PlayerTurn = [1,2,3,4];
+var myNumberOfPlayers = localStorage.getItem('PlayerCount');
+//var MyPlayerIcons = localStorage.getItem('PlayerIcons');
+var myPlayerIcons = JSON.parse(localStorage['PlayerIcons']);
+
 
 let gameCanv = document.getElementById("gameBoard");
 let ctx = gameCanv.getContext("2d");
@@ -34,6 +38,15 @@ function setupLocal() {
     });
   }
 
+  //grey out non active players
+  if (myNumberOfPlayers < 3) {
+    $("#Player3Hud").addClass('nonActivePlayer');
+  }
+  if (myNumberOfPlayers < 4) {
+    $("#Player4Hud").addClass('nonActivePlayer');
+  }
+
+
   EndGameMenu();
 
   //Player Button Click Functions
@@ -42,7 +55,7 @@ function setupLocal() {
       rollPlayer1();
       PlayerTileLocations[0] = Play1Position;
       PlayerLeaderboard();
-      Turn = (Turn % 4) +1;
+      Turn = (Turn % myNumberOfPlayers) + 1;
       $('.myTurn').removeClass('myTurn');
       $("#Player2Hud").addClass('myTurn');
       console.log(Turn);
@@ -57,9 +70,14 @@ function setupLocal() {
       rollPlayer2();
       PlayerTileLocations[1] = Play2Position;
       PlayerLeaderboard()
-      Turn = (Turn % 4) +1;
+      Turn = (Turn % myNumberOfPlayers) + 1;
       $('.myTurn').removeClass('myTurn');
-      $("#Player3Hud").addClass('myTurn');
+      if (myNumberOfPlayers == 2) {
+        $("#Player1Hud").addClass('myTurn');
+      }
+      else {
+        $("#Player3Hud").addClass('myTurn');
+      }
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -68,13 +86,18 @@ function setupLocal() {
   });
 
   $("#Player3Button").on("click", function() {
-    if (Turn == 3) {
+    if (Turn == 3 && myNumberOfPlayers > 2) {
       rollPlayer3();
       PlayerTileLocations[2] = Play3Position;
       PlayerLeaderboard()
-      Turn = (Turn % 4) +1;
+      Turn = (Turn % myNumberOfPlayers) + 1;
       $('.myTurn').removeClass('myTurn');
-      $("#Player4Hud").addClass('myTurn');
+      if (myNumberOfPlayers == 3) {
+        $("#Player1Hud").addClass('myTurn');
+      }
+      else {
+        $("#Player4Hud").addClass('myTurn');
+      }
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -83,11 +106,11 @@ function setupLocal() {
   });
 
   $("#Player4Button").on("click", function() {
-    if (Turn == 4) {
+    if (Turn == 4 && myNumberOfPlayers > 3) {
       rollPlayer4();
       PlayerTileLocations[3] = Play4Position;
       PlayerLeaderboard()
-      Turn = (Turn % 4) +1;
+      Turn = (Turn % myNumberOfPlayers) + 1;
       $('.myTurn').removeClass('myTurn');
       $("#Player1Hud").addClass('myTurn');
       console.log(Turn);
@@ -215,14 +238,14 @@ function drawGameBoard() {
       ctx.fillText("2", xPosition + 64, yPosition - 65);
     }
 
-    if (gameMap[i].valueOf() == Play3Position) {
+    if (gameMap[i].valueOf() == Play3Position && myNumberOfPlayers > 2) {
       ctx.fillStyle = "green";
       ctx.fillRect(xPosition, yPosition - 21, playerTileSize, playerTileSize);
       ctx.fillStyle = "black";
       ctx.fillText("3", xPosition + 5, yPosition - 5);
     }
 
-    if (gameMap[i].valueOf() == Play4Position) {
+    if (gameMap[i].valueOf() == Play4Position && myNumberOfPlayers > 3) {
       ctx.fillStyle = "yellow";
       ctx.fillRect(xPosition + 59, yPosition - 21, playerTileSize, playerTileSize);
       ctx.fillStyle = "black";
@@ -399,6 +422,51 @@ function specialTileCheck(myPosition, player) {
   }
   return myPosition;
 
+}
+
+for (let i = 0; i < myPlayerIcons.length; i++) {
+  let myIcon = setPLayIcon(myPlayerIcons[i]);
+  switch (i+1) {
+    case 1:
+      $("#p1Pic").append(myIcon);
+      break;
+    case 2:
+      $("#p2Pic").append(myIcon);
+      break;
+    case 3:
+      $("#p3Pic").append(myIcon);
+      break;
+    case 4:
+      $("#p4Pic").append(myIcon);
+      break;
+    default:
+      break;
+
+  }
+
+}
+
+//set player icons
+function setPLayIcon(icon) {
+  let selectedIcon;
+  switch (icon) {
+    case "candyCane":
+      selectedIcon = $('<img class="playerImg" src="../Pictures/candyCane.png" />');
+      break;
+    case "cottonCandy":
+      selectedIcon = $('<img class="playerImg" src="../Pictures/cottonCandy.png" />');
+      break;
+    case "lollipop":
+      selectedIcon = $('<img class="playerImg" src="../Pictures/lollipop.png" />');
+      break;
+    case "wrappedCandy":
+      selectedIcon = $('<img class="playerImg" src="../Pictures/wrappedCandy.png" />');
+      break;
+    default:
+      selectedIcon = $('<img class="playerImg" src="../Pictures/candyCane.png" />');
+      break;
+  }
+  return selectedIcon;
 }
 
 //-------------------------End Game Menu ------------------------//

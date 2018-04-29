@@ -63,13 +63,14 @@
 .playersHuds {
   text-align: center;
   float: left;
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: #ff66ff;
   height: 100%;
   width: 14.7%;
 }
 
 #mainHud {
+  border: 1px solid black;
   text-align: center;
   float: left;
   background-color: #66ff66;
@@ -136,6 +137,13 @@
   background-color: yellow;
 }
 
+.playerImg {
+  background-color: white;
+  border: 1px solid black;
+  margin: 10% auto;
+  width: 80%;
+}
+
 body {
   background: linear-gradient(#ff99cc, #33ccff, #ff99cc, #ff99cc, #33ccff, #ff99cc);
 }
@@ -159,6 +167,10 @@ body {
   background-color: yellow;
 }
 
+/*Class given to players who aren't participating*/
+.nonActivePlayer {
+  opacity: 0.2;
+}
 
 
 

@@ -1,5 +1,6 @@
 //variables carried over to game
 var numberOfPlayers = 2;
+var savedNumOfPlayers;
 var icons = [
   "candyCane",
   "cottonCandy",
@@ -112,7 +113,7 @@ function setupLocal() {
   });
 } // setupLocal
 
-var HowManyPlayers = "Player Count"
+var HowManyPlayers = "PlayerCount"
 function setupLocalPlayerNumber() {
   if(localStorage.getItem(HowManyPlayers) !== null) {
     let myItemsString2 = localStorage.getItem(numberOfPlayers);
@@ -120,7 +121,9 @@ function setupLocalPlayerNumber() {
 
   $("#PlayButton").on("click", function() {
 
-    numberOfPlayers = numberOfPlayers;
+    //numberOfPlayers = numberOfPlayers;
+    savedNumOfPlayers = numberOfPlayers;
+
 
     saveItems2();
   });
@@ -138,8 +141,10 @@ function saveItems1() {
 function saveItems2() {
   console.log("Starting save");
   console.log(numberOfPlayers);
-  let myItemsString2 = JSON.stringify(numberOfPlayers);
+  let myItemsString2 = JSON.stringify(savedNumOfPlayers);
   localStorage.setItem(HowManyPlayers, myItemsString2);
+  // let myItemsString2 = JSON.stringify(numberOfPlayers);
+  // localStorage.setItem(HowManyPlayers, myItemsString2);
   console.log("Finished save");
 }
 setupLocal();

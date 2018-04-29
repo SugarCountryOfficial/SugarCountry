@@ -58,4 +58,21 @@ New Azure Instance:
 	
 
 	-Could you add borders around the leaderboard? Just so it looks a little more smooth and less harsh color transitions. Thank
-		
+
+------------------------------------------------------------------------------------------
+	-New Stuff Added
+		-the number of players now changes according to what is chosen from the
+		main menu and it doesn't mess up the turns
+		-also added in the players icons into the player huds
+		-borders around leaderboard
+
+	Hey man we're almost done!
+
+	Still need:
+		-lose turn functionality
+		-change the special tiles to change the DOM instead of just displaying
+		alerts. (I figured for this we could just add it inside the status ID 
+		underneath the "Player X rolled a Y! and add a button with it that must be
+		pressed in order to continue)
+		-just general tiding up of the CSS
+
