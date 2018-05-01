@@ -1,7 +1,7 @@
 
 #LogoImage {
   display: block;
-  margin:auto;
+  margin: auto;
   width: 10%;
 }
 
@@ -34,13 +34,17 @@
 }
 
 #NukeButton {
-  width: 7em;
+  float: right;
+  width: auto;
   border: 2px solid green;
   background: #ffe;
   border-radius: 5px;
 }
 
 #gameBoard {
+  /*width="1600" height="560" */
+  width: 100%;
+  height: 100%;
   background-color: black;
   margin-left: auto;
   margin-right: auto;
@@ -50,13 +54,18 @@
 }
 
 #title {
+  height: auto;
   text-align: center;
 }
 
 #hud {
   margin: auto;
+  width: 100%;
+  height: 100%;
+  /*
   width: 1600px;
   height: 250px;
+  */
 }
 
 
@@ -70,6 +79,7 @@
 }
 
 #mainHud {
+  color: #222222;
   border: 1px solid black;
   text-align: center;
   float: left;
@@ -77,6 +87,7 @@
   height: 100%;
   width: 40%;
 }
+
 
 #status {
   margin: auto;
@@ -112,6 +123,7 @@
 }
 
 #lbTitle {
+  margin-bottom: 1%;
   margin-top: 1%;
   height: 5%;
 }
@@ -146,7 +158,12 @@
 
 body {
   background: linear-gradient(#ff99cc, #33ccff, #ff99cc, #ff99cc, #33ccff, #ff99cc);
+  padding: 0;
+  margin: 0;
+
 }
+
+
 
 /* CSS ID for bordering which player's turn it is*/
 .myTurn {

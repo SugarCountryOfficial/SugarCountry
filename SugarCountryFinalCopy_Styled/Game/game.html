@@ -21,59 +21,61 @@
 
   <span onclick="openNav()"></span>
 
-  <canvas id="gameBoard" width="1600" height="560" style="border:1px solid black"></canvas>
+  <div id="gameScreen">
+    <canvas id="gameBoard" width="1600" height="560" style="border:1px solid black"></canvas>
 
-  <div id="hud">
-    <div id="Player1Hud" class="playersHuds">
-      <p>Player 1</p>
+    <div id="hud">
+      <div id="Player1Hud" class="playersHuds">
+        <p>Player 1</p>
 
-      <div id="p1Pic" class="playerPic"></div>
+        <div id="p1Pic" class="playerPic"></div>
 
-      <button type="button" id = "Player1Button">Player 1 roll</button>
+        <button type="button" id = "Player1Button">Player 1 roll</button>
+      </div>
+      <div id="Player2Hud" class="playersHuds">
+        <p>Player 2</p>
+
+        <div id="p2Pic" class="playerPic"></div>
+
+        <button type="button" id = "Player2Button">Player 2 roll</button>
+      </div>
+
+      <div id="mainHud">
+        <p id="lbTitle">Leaderboard</p>
+        <hr id="HorizontalLine">
+
+        <ol id="Leaderboard">
+
+        </ol>
+
+        <p id="status"><br><br></p>
+        <button type="button" id = "NukeButton">Reset Game</button>
+      </div>
+
+      <div id="Player3Hud" class="playersHuds">
+        <p>Player 3</p>
+
+        <div id="p3Pic" class="playerPic"></div>
+
+        <button type="button" id = "Player3Button">Player 3 roll</button>
+      </div>
+      <div id="Player4Hud" class="playersHuds">
+        <p>Player 4</p>
+
+        <div id="p4Pic" class="playerPic"></div>
+
+        <button type="button" id = "Player4Button">Player 4 roll</button>
+      </div>
+
     </div>
-    <div id="Player2Hud" class="playersHuds">
-      <p>Player 2</p>
-
-      <div id="p2Pic" class="playerPic"></div>
-
-      <button type="button" id = "Player2Button">Player 2 roll</button>
-    </div>
-
-    <div id="mainHud">
-      <p id="lbTitle">Leaderboard</p>
-      <hr id="HorizontalLine">
-
-      <ol id="Leaderboard">
-
-      </ol>
-
-      <p id="status"></p>
-      <button type="button" id = "NukeButton">Reset</button>
-    </div>
-
-    <div id="Player3Hud" class="playersHuds">
-      <p>Player 3</p>
-
-      <div id="p3Pic" class="playerPic"></div>
-
-      <button type="button" id = "Player3Button">Player 3 roll</button>
-    </div>
-    <div id="Player4Hud" class="playersHuds">
-      <p>Player 4</p>
-
-      <div id="p4Pic" class="playerPic"></div>
-
-      <button type="button" id = "Player4Button">Player 4 roll</button>
-    </div>
-
   </div>
 
   <script src="jquery.js"></script>
   <!-- <script src="../script.js"></script> -->
   <script src="sketch.js"></script>
 
-    <div id="WhereTheEndGameGoes"> </div>
+  <div id="WhereTheEndGameGoes"> </div>
 
-  </body>
+</body>
 
 </html>
