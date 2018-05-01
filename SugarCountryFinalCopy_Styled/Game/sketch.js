@@ -56,8 +56,9 @@ function setupLocal() {
       PlayerTileLocations[0] = Play1Position;
       PlayerLeaderboard();
       Turn = (Turn % myNumberOfPlayers) + 1;
-      $('.myTurn').removeClass('myTurn');
-      $("#Player2Hud").addClass('myTurn');
+      CheckTurn(Turn);
+      // $('.myTurn').removeClass('myTurn');
+      // $("#Player2Hud").addClass('myTurn');
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -71,13 +72,14 @@ function setupLocal() {
       PlayerTileLocations[1] = Play2Position;
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
-      $('.myTurn').removeClass('myTurn');
-      if (myNumberOfPlayers == 2) {
-        $("#Player1Hud").addClass('myTurn');
-      }
-      else {
-        $("#Player3Hud").addClass('myTurn');
-      }
+      CheckTurn(Turn);
+      // $('.myTurn').removeClass('myTurn');
+      // if (myNumberOfPlayers == 2) {
+      //   $("#Player1Hud").addClass('myTurn');
+      // }
+      // else {
+      //   $("#Player3Hud").addClass('myTurn');
+      // }
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -91,13 +93,14 @@ function setupLocal() {
       PlayerTileLocations[2] = Play3Position;
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
-      $('.myTurn').removeClass('myTurn');
-      if (myNumberOfPlayers == 3) {
-        $("#Player1Hud").addClass('myTurn');
-      }
-      else {
-        $("#Player4Hud").addClass('myTurn');
-      }
+      CheckTurn(Turn);
+      // $('.myTurn').removeClass('myTurn');
+      // if (myNumberOfPlayers == 3) {
+        // $("#Player1Hud").addClass('myTurn');
+      // }
+      // else {
+        // $("#Player4Hud").addClass('myTurn');
+      // }
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -111,8 +114,9 @@ function setupLocal() {
       PlayerTileLocations[3] = Play4Position;
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
-      $('.myTurn').removeClass('myTurn');
-      $("#Player1Hud").addClass('myTurn');
+      CheckTurn(Turn);
+  //    $('.myTurn').removeClass('myTurn');
+  //    $("#Player1Hud").addClass('myTurn');
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -498,6 +502,28 @@ function openNav() {
 
 function closeNav() {
     document.getElementById("myNav").style.height = "0%";
+}
+
+
+function CheckTurn(NextTurn) {
+  $(".myTurn").removeClass("myTurn");
+
+  switch (NextTurn) {
+    case 1:
+      $("#Player1Hud").addClass("myTurn");
+      break;
+    case 2:
+      $("#Player2Hud").addClass("myTurn");
+      break;
+    case 3:
+      $("#Player3Hud").addClass("myTurn");
+      break;
+    case 4:
+      $("#Player4Hud").addClass("myTurn");
+      break;
+    default:
+      break;
+  }
 }
 
 
