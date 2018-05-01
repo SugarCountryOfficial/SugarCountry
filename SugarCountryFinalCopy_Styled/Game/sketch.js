@@ -21,7 +21,6 @@ var myKey = "playerPositions";
 var PlayerTileLocations = [1,1,1,1];
 var Turn = 1;
 var LeaderboardInfo = [1,1,1,1];
-var PlayerLostTurn = [false, false, false, false];
 
 //Save Player Position for Refresh
 
@@ -403,21 +402,17 @@ function PlayerLeaderboard() {
 //special tiles checker
 function specialTileCheck(myPosition, player) {
   if (myPosition % 5 == 0 && myPosition != 40 && myPosition != 60) {
-    alert("Player " + player + " landed on a special tile!");
-    let mySpecial = Math.floor(Math.random() * 3) + 1;  //which special player gets
+  $("#status").append("<p></p>").text("Player " + player + " landed on a special tile!");
+    let mySpecial = Math.floor(Math.random() * 2) + 1;  //which special player gets
     let tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
     switch (mySpecial) {
       case 1:
-        alert("Player " + player + " go forward " + tileAmount + " tiles!");
+        $("#status").append("<p></p>").text("Player " + player + " go forward " + tileAmount + " tiles!");
         myPosition += tileAmount;
         break;
       case 2:
-        alert("Player " + player + " go back " + tileAmount + " tiles!");
+        $("#status").append("<p></p>").text("Player " + player + " go back " + tileAmount + " tiles!");
         myPosition -= tileAmount;
-        break;
-      case 3:
-        alert("Player " + player + " loses a turn");
-        PlayerLostTurn[player] = true;
         break;
       default:
         break;
