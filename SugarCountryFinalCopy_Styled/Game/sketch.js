@@ -21,6 +21,7 @@ var myKey = "playerPositions";
 var PlayerTileLocations = [1,1,1,1];
 var Turn = 1;
 var LeaderboardInfo = [1,1,1,1];
+var PlayerLostTurn = [false, false, false, false];
 
 //Save Player Position for Refresh
 
@@ -329,7 +330,6 @@ function Nuke() {
    drawGameBoard();
    $('#status').text("");
    $('#status').append("<br><br>");
-
    $("ol").empty();
    LeaderboardInfo = [1,1,1,1];
    PlayerLeaderboard();
@@ -417,6 +417,7 @@ function specialTileCheck(myPosition, player) {
         break;
       case 3:
         alert("Player " + player + " loses a turn");
+        PlayerLostTurn[player] = true;
         break;
       default:
         break;
