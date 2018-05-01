@@ -324,6 +324,8 @@ function Nuke() {
    Play4Position = 1;
    drawGameBoard();
    $('#status').text("");
+   $('#status').append("<br><br>");
+
    $("ol").empty();
    LeaderboardInfo = [1,1,1,1];
    PlayerLeaderboard();
