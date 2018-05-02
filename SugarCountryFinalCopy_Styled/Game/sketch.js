@@ -412,7 +412,7 @@ function specialTileCheck(myPosition, player) {
     let $specialDisplay = $("<span><</span>").text("Player " + player + " landed on a special tile!");
     let mySpecial = Math.floor(Math.random() * 2) + 1;  //which special player gets
     let $specialDisplay2;
-    switch (1){//mySpecial) {
+    switch (mySpecial) {
       case 1:
         tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
         //alert("Player " + player + " go forward " + tileAmount + " tiles!");
