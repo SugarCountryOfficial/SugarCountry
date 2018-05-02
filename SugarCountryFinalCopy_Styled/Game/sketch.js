@@ -186,7 +186,7 @@ function drawGameBoard() {
       ctx.fillStyle = "#664444";
       ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
       ctx.fillStyle = "#ccff33";
-      ctx.fillRect(xPosition, yPosition - 50, tileSize, (tileSize-1)/4);
+      ctx.fillRect(xPosition-1, yPosition - 50, tileSize, (tileSize-1)/4);
     }
     else if (gameMap[i].valueOf() % 5 == 0 && gameMap[i].valueOf() != 40 && gameMap[i].valueOf() != 60) {
       //special tiles
@@ -401,7 +401,7 @@ function specialTileCheck(myPosition, player) {
     let mySpecial = Math.floor(Math.random() * 2) + 1;  //which special player gets
     let tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
     let $specialDisplay2;
-    switch (1){//mySpecial) {
+    switch (mySpecial) {
       case 1:
         //alert("Player " + player + " go forward " + tileAmount + " tiles!");
         $specialDisplay2 = $("<span></span>").text("Player " + player + " go forward " + tileAmount + " tiles!");
@@ -475,15 +475,19 @@ function specialMove(player, tileAmount) {
   switch (player) {
     case 1:
       Play1Position += tileAmount;
+      PlayerTileLocations[0] = Play1Position;
       break;
     case 2:
       Play2Position += tileAmount;
+      PlayerTileLocations[1] = Play2Position;
       break;
     case 3:
       Play3Position += tileAmount;
+      PlayerTileLocations[2] = Play3Position;
       break;
     case 4:
       Play4Position += tileAmount;
+      PlayerTileLocations[3] = Play4Position;
       break;
     default:
       break;
