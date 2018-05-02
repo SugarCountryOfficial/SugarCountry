@@ -57,7 +57,7 @@ function setupLocal() {
       PlayerLeaderboard();
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      console.log(Turn);
+      //console.log(Turn);
       saveTileLocations();
       saveTurns()
     }
@@ -71,7 +71,7 @@ function setupLocal() {
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      console.log(Turn);
+      //console.log(Turn);
       saveTileLocations();
       saveTurns()
     }
@@ -85,7 +85,7 @@ function setupLocal() {
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      console.log(Turn);
+      //console.log(Turn);
       saveTileLocations();
       saveTurns()
     }
@@ -99,7 +99,7 @@ function setupLocal() {
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      console.log(Turn);
+      //console.log(Turn);
       saveTileLocations();
       saveTurns()
     }
@@ -123,7 +123,7 @@ function setupLocal() {
 var myKeyTurns = "Player Turn";
 
 function setupLocalTurns() {
-  console.log("Retrieving Turns");
+  //console.log("Retrieving Turns");
   if(localStorage.getItem(myKeyTurns) !== null) {
     Turn = localStorage.getItem(myKeyTurns);
     if (Turn == 1) {
@@ -142,20 +142,20 @@ function setupLocalTurns() {
   else {
     Turn = 1;
   }
-  console.log("Retrieved Turns");
+  //console.log("Retrieved Turns");
 } //End setupLocalTurns
 
 function saveTurns() {
-  console.log("Turn " + Turn);
+  //console.log("Turn " + Turn);
   localStorage.setItem(myKeyTurns, Turn);
 } //End SaveItemsTurn
 
 function saveTileLocations() {
-  console.log("Starting save");
-  console.log(PlayerTileLocations);
+  //console.log("Starting save");
+  //console.log(PlayerTileLocations);
   let myItemsString = JSON.stringify(PlayerTileLocations);
   localStorage.setItem(myKey, myItemsString);
-  console.log("Finished save");
+  //console.log("Finished save");
 }
 
 //game board array
@@ -261,7 +261,7 @@ function rollPlayer1() {
     Play1Position = 72;
   }
   drawGameBoard();
-  console.log("Player 1 rolled a " + rollNum);
+  //console.log("Player 1 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 1 rolled a " + rollNum + "!");
   specialTileCheck(Play1Position, 1);
@@ -278,7 +278,7 @@ function rollPlayer2() {
     Play2Position = 72;
   }
   drawGameBoard();
-  console.log("Player 2 rolled a " + rollNum);
+  //console.log("Player 2 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 2 rolled a " + rollNum + "!");
   specialTileCheck(Play2Position, 2);
@@ -295,7 +295,7 @@ function rollPlayer3() {
     Play3Position = 72;
   }
   drawGameBoard();
-  console.log("Player 3 rolled a " + rollNum);
+  //console.log("Player 3 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 3 rolled a " + rollNum + "!");
   specialTileCheck(Play3Position, 3);
@@ -312,7 +312,7 @@ function rollPlayer4() {
     Play4Position = 72;
   }
   drawGameBoard();
-  console.log("Player 4 rolled a " + rollNum);
+  //console.log("Player 4 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 4 rolled a " + rollNum + "!");
   specialTileCheck(Play4Position, 4);
@@ -421,9 +421,10 @@ function specialTileCheck(myPosition, player) {
         $("#status").append("<br>");
         $("#status").append($specialDisplay2);
         $("#status").append("<br>");
-        $("#status").append("<button id='contButton'>Press to Continue</button>").on('click', function(){
+        $("#status").append("<button>Press to Continue</button>").on('click', function(){
           specialMove(player, tileAmount);
-          $("#contButton").remove();
+          //$("#contButton").remove();
+          $("#status").empty();
           $("#status").css("background", "white");
           $("#status").text("Player " + player + " moved " + tileAmount + " tiles");
           //myPosition += tileAmount;
@@ -439,11 +440,12 @@ function specialTileCheck(myPosition, player) {
         $("#status").append("<br>");
         $("#status").append($specialDisplay2);
         $("#status").append("<br>");
-        $("#status").append("<button id='contButton'>Press to Continue</button>").on('click', function(){
-          specialMove(player, tileAmount);
-          $("#contButton").remove();
+        $("#status").append("<button>Press to Continue</button>").on('click', function(){
+          //$("#contButton").remove();
+          $("#status").empty();
           $("#status").css("background", "white");
           $("#status").text("Player " + player + " moved back " + tileAmount + " tiles");
+          specialMove(player, tileAmount);
           //myPosition += tileAmount;
         });
         break;
@@ -462,11 +464,12 @@ function specialTileCheck(myPosition, player) {
     $("#status").append("<br>");
     $("#status").append($specialDisplay2);
     $("#status").append("<br>");
-    $("#status").append("<button id='contButton'>Press to Continue</button>").on('click', function(){
-      specialMove(player, tileAmount);
-      $("#contButton").remove();
+    $("#status").append("<button>Press to Continue</button>").on('click', function(){
+      //$("#contButton").remove();
+      $("#status").empty();
       $("#status").css("background", "white");
       $("#status").text("Player " + player + " moved " + tileAmount + " tiles");
+      specialMove(player, tileAmount);
     });
     // let $superSpecialDisplay = $("<p></p>").text("Player " + player + " landed on a SUPER special tile!");
     // //alert("Player " + player + " landed on a SUPER special tile!");
@@ -486,18 +489,22 @@ function specialMove(player, tileAmount) {
     case 1:
       Play1Position += tileAmount;
       PlayerTileLocations[0] = Play1Position;
+      console.log("player " + player + " moved " + tileAmount);
       break;
     case 2:
       Play2Position += tileAmount;
       PlayerTileLocations[1] = Play2Position;
+      console.log("player " + player + " moved " + tileAmount);
       break;
     case 3:
       Play3Position += tileAmount;
       PlayerTileLocations[2] = Play3Position;
+      console.log("player " + player + " moved " + tileAmount);
       break;
     case 4:
       Play4Position += tileAmount;
       PlayerTileLocations[3] = Play4Position;
+      console.log("player " + player + " moved " + tileAmount);
       break;
     default:
       break;
