@@ -139,9 +139,6 @@ function setupLocalTurns() {
       $("#Player4Hud").addClass("myTurn");
     };
   }
-  else {
-    Turn = 1;
-  }
   //console.log("Retrieved Turns");
 } //End setupLocalTurns
 
