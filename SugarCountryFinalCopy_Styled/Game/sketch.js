@@ -57,8 +57,6 @@ function setupLocal() {
       PlayerLeaderboard();
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      // $('.myTurn').removeClass('myTurn');
-      // $("#Player2Hud").addClass('myTurn');
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -73,13 +71,6 @@ function setupLocal() {
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      // $('.myTurn').removeClass('myTurn');
-      // if (myNumberOfPlayers == 2) {
-      //   $("#Player1Hud").addClass('myTurn');
-      // }
-      // else {
-      //   $("#Player3Hud").addClass('myTurn');
-      // }
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -94,13 +85,6 @@ function setupLocal() {
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-      // $('.myTurn').removeClass('myTurn');
-      // if (myNumberOfPlayers == 3) {
-        // $("#Player1Hud").addClass('myTurn');
-      // }
-      // else {
-        // $("#Player4Hud").addClass('myTurn');
-      // }
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -115,8 +99,6 @@ function setupLocal() {
       PlayerLeaderboard()
       Turn = (Turn % myNumberOfPlayers) + 1;
       CheckTurn(Turn);
-  //    $('.myTurn').removeClass('myTurn');
-  //    $("#Player1Hud").addClass('myTurn');
       console.log(Turn);
       saveTileLocations();
       saveTurns()
@@ -179,7 +161,7 @@ let gameMap = [
    6,  0, 10,  0, 22,  0, 26,  0, 48,  0,  0,  0,  0,  0,  0, 57,  0, 69,  0,  0,
    5,  0, 11,  0, 21,  0, 27,  0, 47,  0,  0,  0,  0,  0,  0, 58,  0, 68,  0,  0,
    4,  0, 12,  0, 20,  0, 28,  0, 46,  0,  0,  0,  0,  0,  0, 59,  0, 67,  0,  0,
-   3,  0, 13,  0, 19,  0, 29,  0, 45, 44, 43, 42, 41, 40,  0, 60,  0, 66,  0,  0,
+   3,  0, 13,  0, 19,  0, 29,  0, 45, 44, 43, 42, 41, 40, -1, 60,  0, 66,  0,  0,
    2,  0, 14,  0, 18,  0, 30,  0,  0,  0,  0,  0,  0, 39,  0, 61,  0, 65,  0,  0,
    1,  0, 15, 16, 17,  0, 31, 32, 33, 34, 35, 36, 37, 38,  0, 62, 63, 64,  0,  0
 ];
@@ -198,6 +180,13 @@ function drawGameBoard() {
       //out of bounds tiles
       ctx.fillStyle = "#664444";
       ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
+    }
+    else if (gameMap[i].valueOf() == -1) {
+      //bridge tile
+      ctx.fillStyle = "#664444";
+      ctx.fillRect(xPosition, yPosition - 80, tileSize-1, tileSize-1);
+      ctx.fillStyle = "#ccff33";
+      ctx.fillRect(xPosition, yPosition - 50, tileSize, (tileSize-1)/4);
     }
     else if (gameMap[i].valueOf() % 5 == 0 && gameMap[i].valueOf() != 40 && gameMap[i].valueOf() != 60) {
       //special tiles
@@ -271,8 +260,9 @@ function rollPlayer1() {
   drawGameBoard();
   console.log("Player 1 rolled a " + rollNum);
   $('#status').text("Player 1 rolled a " + rollNum + "!");
-  Play1Position = specialTileCheck(Play1Position, 1);
-  drawGameBoard();
+  specialTileCheck(Play1Position, 1);
+  // Play1Position = specialTileCheck(Play1Position, 1);
+  // drawGameBoard();
   EndGameMenu();
 } //End Roll Player 1
 
@@ -286,8 +276,9 @@ function rollPlayer2() {
   drawGameBoard();
   console.log("Player 2 rolled a " + rollNum);
   $('#status').text("Player 2 rolled a " + rollNum + "!");
-  Play2Position = specialTileCheck(Play2Position, 2);
-  drawGameBoard();
+  specialTileCheck(Play2Position, 2);
+  // Play2Position = specialTileCheck(Play2Position, 2);
+  // drawGameBoard();
   EndGameMenu();
 } //End Roll Player 2
 
@@ -301,8 +292,9 @@ function rollPlayer3() {
   drawGameBoard();
   console.log("Player 3 rolled a " + rollNum);
   $('#status').text("Player 3 rolled a " + rollNum + "!");
-  Play3Position = specialTileCheck(Play3Position, 3);
-  drawGameBoard();
+  specialTileCheck(Play3Position, 3);
+  // Play3Position = specialTileCheck(Play3Position, 3);
+  // drawGameBoard();
   EndGameMenu();
 } //End Roll Player 3
 
@@ -316,8 +308,9 @@ function rollPlayer4() {
   drawGameBoard();
   console.log("Player 4 rolled a " + rollNum);
   $('#status').text("Player 4 rolled a " + rollNum + "!");
-  Play4Position = specialTileCheck(Play4Position, 4);
-  drawGameBoard();
+  specialTileCheck(Play4Position, 4);
+  // Play4Position = specialTileCheck(Play4Position, 4);
+  // drawGameBoard();
   EndGameMenu();
 } //End Roll Player 4
 
@@ -402,29 +395,105 @@ function PlayerLeaderboard() {
 //special tiles checker
 function specialTileCheck(myPosition, player) {
   if (myPosition % 5 == 0 && myPosition != 40 && myPosition != 60) {
-  $("#status").append("<p></p>").text("Player " + player + " landed on a special tile!");
+    $("#status").css("background", "#ff99ff");
+    //alert("Player " + player + " landed on a special tile!");
+    let $specialDisplay = $("<span><</span>").text("Player " + player + " landed on a special tile!");
     let mySpecial = Math.floor(Math.random() * 2) + 1;  //which special player gets
     let tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
-    switch (mySpecial) {
+    let $specialDisplay2;
+    switch (1){//mySpecial) {
       case 1:
-        $("#status").append("<p></p>").text("Player " + player + " go forward " + tileAmount + " tiles!");
-        myPosition += tileAmount;
+        //alert("Player " + player + " go forward " + tileAmount + " tiles!");
+        $specialDisplay2 = $("<span></span>").text("Player " + player + " go forward " + tileAmount + " tiles!");
+        //continueButton($specialDisplay);
+        $("#status").append("<br>");
+        $("#status").append($specialDisplay);
+        $("#status").append("<br>");
+        $("#status").append($specialDisplay2);
+        $("#status").append("<br>");
+        $("#status").append("<button id='contButton'>Press to Continue</button>").on('click', function(){
+          specialMove(player, tileAmount);
+          $("#contButton").remove();
+          $("#status").css("background", "white");
+          $("#status").text("Player " + player + " moved " + tileAmount + " tiles");
+          //myPosition += tileAmount;
+        });
         break;
       case 2:
-        $("#status").append("<p></p>").text("Player " + player + " go back " + tileAmount + " tiles!");
-        myPosition -= tileAmount;
+        //alert("Player " + player + " go forward " + tileAmount + " tiles!");
+        $specialDisplay2 = $("<span></span>").text("Player " + player + " go back " + tileAmount + " tiles!");
+        //continueButton($specialDisplay);
+        tileAmount = 0 - tileAmount;
+        $("#status").append("<br>");
+        $("#status").append($specialDisplay);
+        $("#status").append("<br>");
+        $("#status").append($specialDisplay2);
+        $("#status").append("<br>");
+        $("#status").append("<button id='contButton'>Press to Continue</button>").on('click', function(){
+          specialMove(player, tileAmount);
+          $("#contButton").remove();
+          $("#status").css("background", "white");
+          $("#status").text("Player " + player + " moved back " + tileAmount + " tiles");
+          //myPosition += tileAmount;
+        });
         break;
       default:
         break;
     }
   }
   if (myPosition == 40) {
-    alert("Player " + player + " landed on a SUPER special tile!");
-    myPosition += 20;
+    $("#status").css("background", "#ccff33");
+    let tileAmount = 20;
+    let $specialDisplay = $("<span><</span>").text("Player " + player + " landed on the super special tile!");
+    let $specialDisplay2 = $("<span></span>").text("Player " + player + " go forward " + tileAmount + " tiles!");
+    //continueButton($specialDisplay);
+    $("#status").append("<br>");
+    $("#status").append($specialDisplay);
+    $("#status").append("<br>");
+    $("#status").append($specialDisplay2);
+    $("#status").append("<br>");
+    $("#status").append("<button id='contButton'>Press to Continue</button>").on('click', function(){
+      specialMove(player, tileAmount);
+      $("#contButton").remove();
+      $("#status").css("background", "white");
+      $("#status").text("Player " + player + " moved " + tileAmount + " tiles");
+    });
+    // let $superSpecialDisplay = $("<p></p>").text("Player " + player + " landed on a SUPER special tile!");
+    // //alert("Player " + player + " landed on a SUPER special tile!");
+    // //$("#status").text("Player " + player + " landed on a SUPER special tile!");
+    // continueButton($superSpecialDisplay);
+    // $("#status").append($superSpecialDisplay);
+    // myPosition += 20;
   }
-  return myPosition;
+
+
+  //return myPosition;
 
 }
+
+function specialMove(player, tileAmount) {
+  switch (player) {
+    case 1:
+      Play1Position += tileAmount;
+      break;
+    case 2:
+      Play2Position += tileAmount;
+      break;
+    case 3:
+      Play3Position += tileAmount;
+      break;
+    case 4:
+      Play4Position += tileAmount;
+      break;
+    default:
+      break;
+
+  }
+  drawGameBoard();
+  saveTileLocations();
+  EndGameMenu();
+}
+
 
 for (let i = 0; i < myPlayerIcons.length; i++) {
   let myIcon = setPLayIcon(myPlayerIcons[i]);
@@ -500,6 +569,36 @@ function closeNav() {
     document.getElementById("myNav").style.height = "0%";
 }
 
+//quality control function (only use in console for debugging/QA)
+function cheatCode(player, tileLocation) {
+  $("#status").text("");
+  PlayerTileLocations[player-1] = tileLocation;
+
+  switch (player) {
+    case 1:
+      Play1Position = tileLocation;
+      break;
+    case 2:
+      Play2Position = tileLocation;
+      break;
+    case 3:
+      Play3Position = tileLocation;
+      break;
+    case 4:
+      Play4Position = tileLocation;
+      break;
+    default:
+      break;
+
+
+  }
+  specialTileCheck(tileLocation, player);
+  drawGameBoard();
+  //PlayerLeaderboard();
+  EndGameMenu();
+
+}
+
 
 function CheckTurn(NextTurn) {
   $(".myTurn").removeClass("myTurn");
@@ -520,12 +619,18 @@ function CheckTurn(NextTurn) {
     default:
       break;
   }
+
 }
+
+// if (Turn == 1) {
+//   $("#Player1Hud").addClass("myTurn");
+// }
 
 
 
 
 //Forced Functions
+//CheckTurn(Turn);
 setupLocal();
 setupLocalTurns();
 drawGameBoard();
