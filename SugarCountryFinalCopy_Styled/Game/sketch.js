@@ -261,9 +261,10 @@ function rollPlayer1() {
   //console.log("Player 1 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 1 rolled a " + rollNum + "!");
-  specialTileCheck(Play1Position, 1);
+  Play1Position += specialTileCheck(Play1Position, 1);
+  PlayerTileLocations[0] = Play1Position;
   // Play1Position = specialTileCheck(Play1Position, 1);
-  // drawGameBoard();
+  drawGameBoard();
   EndGameMenu();
 } //End Roll Player 1
 
@@ -278,9 +279,10 @@ function rollPlayer2() {
   //console.log("Player 2 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 2 rolled a " + rollNum + "!");
-  specialTileCheck(Play2Position, 2);
+  Play2Position += specialTileCheck(Play2Position, 2);
+  PlayerTileLocations[1] = Play2Position;
   // Play2Position = specialTileCheck(Play2Position, 2);
-  // drawGameBoard();
+  drawGameBoard();
   EndGameMenu();
 } //End Roll Player 2
 
@@ -295,9 +297,10 @@ function rollPlayer3() {
   //console.log("Player 3 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 3 rolled a " + rollNum + "!");
-  specialTileCheck(Play3Position, 3);
+  Play3Position += specialTileCheck(Play3Position, 3);
+  PlayerTileLocations[2] = Play3Position;
   // Play3Position = specialTileCheck(Play3Position, 3);
-  // drawGameBoard();
+  drawGameBoard();
   EndGameMenu();
 } //End Roll Player 3
 
@@ -312,9 +315,10 @@ function rollPlayer4() {
   //console.log("Player 4 rolled a " + rollNum);
   $("#status").css("background", "white");
   $('#status').text("Player 4 rolled a " + rollNum + "!");
-  specialTileCheck(Play4Position, 4);
+  Play4Position += specialTileCheck(Play4Position, 4);
+  PlayerTileLocations[3] = Play4Position;
   // Play4Position = specialTileCheck(Play4Position, 4);
-  // drawGameBoard();
+  drawGameBoard();
   EndGameMenu();
 } //End Roll Player 4
 
@@ -401,15 +405,16 @@ function PlayerLeaderboard() {
 
 //special tiles checker
 function specialTileCheck(myPosition, player) {
+  let tileAmount = 0; // = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
   if (myPosition % 5 == 0 && myPosition != 40 && myPosition != 60) {
     $("#status").css("background", "#ff99ff");
     //alert("Player " + player + " landed on a special tile!");
     let $specialDisplay = $("<span><</span>").text("Player " + player + " landed on a special tile!");
     let mySpecial = Math.floor(Math.random() * 2) + 1;  //which special player gets
-    let tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
     let $specialDisplay2;
-    switch (mySpecial) {
+    switch (1){//mySpecial) {
       case 1:
+        tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
         //alert("Player " + player + " go forward " + tileAmount + " tiles!");
         $specialDisplay2 = $("<span></span>").text("Player " + player + " go forward " + tileAmount + " tiles!");
         //continueButton($specialDisplay);
@@ -419,15 +424,17 @@ function specialTileCheck(myPosition, player) {
         $("#status").append($specialDisplay2);
         $("#status").append("<br>");
         $("#status").append("<button>Press to Continue</button>").on('click', function(){
-          specialMove(player, tileAmount);
+          //specialMove(player, tileAmount);
           //$("#contButton").remove();
           $("#status").empty();
           $("#status").css("background", "white");
           $("#status").text("Player " + player + " moved " + tileAmount + " tiles");
           //myPosition += tileAmount;
+
         });
         break;
       case 2:
+        tileAmount = Math.floor(Math.random() * 3) + 1; //how many tiles goes forward/backward
         //alert("Player " + player + " go forward " + tileAmount + " tiles!");
         $specialDisplay2 = $("<span></span>").text("Player " + player + " go back " + tileAmount + " tiles!");
         //continueButton($specialDisplay);
@@ -442,7 +449,8 @@ function specialTileCheck(myPosition, player) {
           $("#status").empty();
           $("#status").css("background", "white");
           $("#status").text("Player " + player + " moved back " + tileAmount + " tiles");
-          specialMove(player, tileAmount);
+          //specialMove(player, tileAmount);
+
           //myPosition += tileAmount;
         });
         break;
@@ -452,7 +460,7 @@ function specialTileCheck(myPosition, player) {
   }
   if (myPosition == 40) {
     $("#status").css("background", "#ccff33");
-    let tileAmount = 20;
+    tileAmount = 20;
     let $specialDisplay = $("<span><</span>").text("Player " + player + " landed on the super special tile!");
     let $specialDisplay2 = $("<span></span>").text("Player " + player + " go forward " + tileAmount + " tiles!");
     //continueButton($specialDisplay);
@@ -466,7 +474,7 @@ function specialTileCheck(myPosition, player) {
       $("#status").empty();
       $("#status").css("background", "white");
       $("#status").text("Player " + player + " moved " + tileAmount + " tiles");
-      specialMove(player, tileAmount);
+      //specialMove(player, tileAmount);
     });
     // let $superSpecialDisplay = $("<p></p>").text("Player " + player + " landed on a SUPER special tile!");
     // //alert("Player " + player + " landed on a SUPER special tile!");
@@ -477,29 +485,30 @@ function specialTileCheck(myPosition, player) {
   }
 
 
-  //return myPosition;
+
+  return tileAmount;
 
 }
 
 function specialMove(player, tileAmount) {
   switch (player) {
     case 1:
-      Play1Position += tileAmount;
+      //Play1Position += tileAmount;
       PlayerTileLocations[0] = Play1Position;
       console.log("player " + player + " moved " + tileAmount);
       break;
     case 2:
-      Play2Position += tileAmount;
+      //Play2Position += tileAmount;
       PlayerTileLocations[1] = Play2Position;
       console.log("player " + player + " moved " + tileAmount);
       break;
     case 3:
-      Play3Position += tileAmount;
+      //Play3Position += tileAmount;
       PlayerTileLocations[2] = Play3Position;
       console.log("player " + player + " moved " + tileAmount);
       break;
     case 4:
-      Play4Position += tileAmount;
+      //Play4Position += tileAmount;
       PlayerTileLocations[3] = Play4Position;
       console.log("player " + player + " moved " + tileAmount);
       break;
