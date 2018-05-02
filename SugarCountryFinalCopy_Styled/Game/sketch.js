@@ -46,7 +46,7 @@ function setupLocal() {
     $("#Player4Hud").addClass('nonActivePlayer');
   }
 
-
+  $("#Player1Hud").addClass("myTurn");
   EndGameMenu();
 
   //Player Button Click Functions
