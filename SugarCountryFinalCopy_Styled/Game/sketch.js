@@ -604,15 +604,23 @@ function cheatCode(player, tileLocation) {
   switch (player) {
     case 1:
       Play1Position = tileLocation;
+      Play1Position += specialTileCheck(Play1Position, 1);
+      PlayerTileLocations[0] = Play1Position;
       break;
     case 2:
       Play2Position = tileLocation;
+      Play2Position += specialTileCheck(Play2Position, 2);
+      PlayerTileLocations[1] = Play2Position;
       break;
     case 3:
       Play3Position = tileLocation;
+      Play3Position += specialTileCheck(Play3Position, 3);
+      PlayerTileLocations[2] = Play3Position;
       break;
     case 4:
       Play4Position = tileLocation;
+      Play4Position += specialTileCheck(Play4Position, 4);
+      PlayerTileLocations[3] = Play4Position;
       break;
     default:
       break;
