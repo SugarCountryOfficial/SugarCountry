@@ -28,12 +28,12 @@ function setupLocal() {
   else {
 }
 
-$("#buttonElement").on("click", function() {
-  let curVal1 = Play1Position;
-  createItem(curVal1);
-  myItems.push(curVal1);
-  saveItems();
-});
+// $("#buttonElement").on("click", function() {
+//   let curVal1 = Play1Position;
+//   createItem(curVal1);
+//   myItems.push(curVal1);
+//   saveItems();
+// });
 
 }
 function saveItems() {
@@ -41,9 +41,9 @@ function saveItems() {
   localStorage.setItem(myKey, PlayerTileLocations);
 }
 
-$(function() {
+
   setupLocal();
-});
+
 
 
 //game board array
