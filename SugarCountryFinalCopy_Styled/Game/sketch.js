@@ -632,7 +632,6 @@ function CheckTurn(NextTurn) {
 
 
 
-
 //Forced Functions
 //CheckTurn(Turn);
 setupLocal();
