@@ -109,7 +109,7 @@ function setupLocal() {
   //nuke button
   $("#NukeButton").on("click", function() {
     Nuke();
-    PlayerTileLocations = [1,1,1,1];
+    //PlayerTileLocations = [1,1,1,1];
     Turn = 1;
     $('.myTurn').removeClass('myTurn');
     $("#Player1Hud").addClass('myTurn');
@@ -138,6 +138,9 @@ function setupLocalTurns() {
     if (Turn == 4) {
       $("#Player4Hud").addClass("myTurn");
     };
+  }
+  else {
+    Turn = 1;
   }
   console.log("Retrieved Turns");
 } //End setupLocalTurns
@@ -259,6 +262,7 @@ function rollPlayer1() {
   }
   drawGameBoard();
   console.log("Player 1 rolled a " + rollNum);
+  $("#status").css("background", "white");
   $('#status').text("Player 1 rolled a " + rollNum + "!");
   specialTileCheck(Play1Position, 1);
   // Play1Position = specialTileCheck(Play1Position, 1);
@@ -275,6 +279,7 @@ function rollPlayer2() {
   }
   drawGameBoard();
   console.log("Player 2 rolled a " + rollNum);
+  $("#status").css("background", "white");
   $('#status').text("Player 2 rolled a " + rollNum + "!");
   specialTileCheck(Play2Position, 2);
   // Play2Position = specialTileCheck(Play2Position, 2);
@@ -291,6 +296,7 @@ function rollPlayer3() {
   }
   drawGameBoard();
   console.log("Player 3 rolled a " + rollNum);
+  $("#status").css("background", "white");
   $('#status').text("Player 3 rolled a " + rollNum + "!");
   specialTileCheck(Play3Position, 3);
   // Play3Position = specialTileCheck(Play3Position, 3);
@@ -307,6 +313,7 @@ function rollPlayer4() {
   }
   drawGameBoard();
   console.log("Player 4 rolled a " + rollNum);
+  $("#status").css("background", "white");
   $('#status').text("Player 4 rolled a " + rollNum + "!");
   specialTileCheck(Play4Position, 4);
   // Play4Position = specialTileCheck(Play4Position, 4);
@@ -319,7 +326,9 @@ function Nuke() {
    Play2Position = 1;
    Play3Position = 1;
    Play4Position = 1;
+   PlayerTileLocations = [1,1,1,1];
    drawGameBoard();
+   $("#status").css("background", "white");
    $('#status').text("");
    $('#status').append("<br><br>");
    $("ol").empty();
@@ -336,6 +345,7 @@ function nukeEndGame() {
   $('.myTurn').removeClass('myTurn');
   $("#Player1Hud").addClass('myTurn');
   drawGameBoard();
+  $("#status").css("background", "white");
   $('#status').text("");
   $("ol").empty();
   LeaderboardInfo = [1,1,1,1];
@@ -621,14 +631,13 @@ function CheckTurn(NextTurn) {
       $("#Player4Hud").addClass("myTurn");
       break;
     default:
+      //$("#Player1Hud").addClass("myTurn");
       break;
   }
 
 }
 
-// if (Turn == 1) {
-//   $("#Player1Hud").addClass("myTurn");
-// }
+
 
 
 
