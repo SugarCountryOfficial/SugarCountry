@@ -1,0 +1,246 @@
+
+#LogoImage {
+  display: block;
+  margin: auto;
+  width: 10%;
+}
+
+#Player1Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#Player2Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#Player3Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#Player4Button {
+  width: 7em;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#NukeButton {
+  float: right;
+  width: auto;
+  border: 2px solid green;
+  background: #ffe;
+  border-radius: 5px;
+}
+
+#gameBoard {
+  /*width="1600" height="560" */
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
+
+#title {
+  height: auto;
+  text-align: center;
+}
+
+#hud {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  /*
+  width: 1600px;
+  height: 250px;
+  */
+}
+
+
+.playersHuds {
+  text-align: center;
+  float: left;
+  border: 1px solid black;
+  background-color: #ff66ff;
+  height: 100%;
+  width: 14.7%;
+}
+
+#mainHud {
+  color: #222222;
+  border: 1px solid black;
+  text-align: center;
+  float: left;
+  background-color: #66ff66;
+  height: 100%;
+  width: 40%;
+}
+
+
+#status {
+  font-size: 12px;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+
+  border: 1px solid black;
+  background: white;
+  width: 45%;
+  height: 25%;
+}
+
+.specialStatus {
+  background: yellow;
+}
+
+#HorizontalLine {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 0;
+  margin-bottom: 2%;
+  padding: 0;
+}
+
+#Leaderboard {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 35%;
+  height: 35%;
+}
+
+#Score {
+
+}
+
+#lbTitle {
+  margin-bottom: 1%;
+  margin-top: 1%;
+  height: 5%;
+}
+
+.playerPic {
+  border: 1px solid black;
+  margin: auto;
+  margin-bottom: 2%;
+  width: 50%;
+  height: 50%;
+}
+
+#p1Pic {
+  background-color: red;
+}
+#p2Pic {
+  background-color: blue;
+}
+#p3Pic {
+  background-color: green;
+}
+#p4Pic {
+  background-color: yellow;
+}
+
+.playerImg {
+  background-color: white;
+  border: 1px solid black;
+  margin: 10% auto;
+  width: 80%;
+}
+
+body {
+  background: linear-gradient(#ff99cc, #33ccff, #ff99cc, #ff99cc, #33ccff, #ff99cc);
+  padding: 0;
+  margin: 0;
+
+}
+
+
+
+/* CSS ID for bordering which player's turn it is*/
+.myTurn {
+  background-color: #3399ff;
+}
+
+/* leader board colors */
+.player1color {
+  background-color: red;
+}
+.player2color {
+  background-color: blue;
+}
+.player3color {
+  background-color: green;
+}
+.player4color {
+  background-color: yellow;
+}
+
+/*Class given to players who aren't participating*/
+.nonActivePlayer {
+  opacity: 0.2;
+}
+
+
+
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#overlaycontent {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    #EndGameNukeButton a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
